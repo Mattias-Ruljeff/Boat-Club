@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="View">
+    <Position X="6.385" Y="0.5" Height="0.291" Width="0.7" />
+  </Comment>
+  <Class Name="Jolly_Pirate_Yacht_Club.View.MemberView">
+    <Position X="6.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAgAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>View\MemberView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jolly_Pirate_Yacht_Club.View.BoatView">
+    <Position X="8.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\BoatView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jolly_Pirate_Yacht_Club.View.MainMenu">
+    <Position X="4.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAEAAAACAAAAAAAAA=</HashCode>
+      <FileName>View\MainMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

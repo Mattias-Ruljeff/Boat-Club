@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Jolly_Pirate_Yacht_Club.View;
+using System;
+using System.Threading.Channels;
 
 namespace Jolly_pirate_Yacht_Club
 {
@@ -6,8 +8,8 @@ namespace Jolly_pirate_Yacht_Club
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.WriteLine("Kebab åt folket");
+            MainMenu run = new MainMenu();
+            run.mainMenu();
         }
     }
 }
