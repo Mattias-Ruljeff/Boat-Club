@@ -6,21 +6,21 @@
   <Class Name="Jolly_Pirate_Yacht_Club.Model.Boat">
     <Position X="6.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAABAAAAAAAAAQAAAAA=</HashCode>
       <FileName>Model\Boat.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Jolly_Pirate_Yacht_Club.Model.Member">
     <Position X="4.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAIAAAAAAAgAAAAAAAAAAAAAAEAAAAAAAEAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgACAAAAAAAAAAAAEAAAAAAAEAAAAAAA=</HashCode>
       <FileName>Model\Member.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Jolly_Pirate_Yacht_Club.Model.Database">
     <Position X="4.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAAAAAAAAgAAAAAAACAAAAACAAAgAiAAAA=</HashCode>
+      <HashCode>AAAAgAAAAAAAAAAAAAgAAAAAAACAAIAACAAAgAiAAAA=</HashCode>
       <FileName>Model\Database.cs</FileName>
     </TypeIdentifier>
   </Class>

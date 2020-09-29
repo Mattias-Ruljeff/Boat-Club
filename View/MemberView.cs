@@ -48,10 +48,10 @@ namespace Jolly_Pirate_Yacht_Club.View
             string name;
             do
             {
-            Console.WriteLine("=========================");
-            Console.WriteLine("Enter new name.");
+                Console.WriteLine("=========================");
+                Console.WriteLine("Enter new name.");
 
-            name = Console.ReadLine();
+                name = Console.ReadLine();
 
 
             } while (name == "");

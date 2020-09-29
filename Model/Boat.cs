@@ -6,11 +6,15 @@ namespace Jolly_Pirate_Yacht_Club.Model
 {
     class Boat
     {
-        public int type
+        public string type
         {
             get => default;
             set
             {
+                if (value == "")
+                {
+                    throw new Exception("Name cannot be empty");
+                }
             }
         }
 
@@ -19,6 +23,19 @@ namespace Jolly_Pirate_Yacht_Club.Model
             get => default;
             set
             {
+                if (value <= 0)
+                {
+                    throw new Exception("Length cannot be less than zero");
+                }
+            }
+        }
+
+        public int ID
+        {
+            get => default;
+            private set
+            {
+                //
             }
         }
     }
