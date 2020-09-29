@@ -1,7 +1,6 @@
 ﻿using System;
 using Jolly_Pirate_Yacht_Club.Model;
-using System.Collections.Generic;
-using System.Text;
+using System.Xml.Linq;
 
 namespace Jolly_Pirate_Yacht_Club.View
 {
@@ -18,26 +17,18 @@ namespace Jolly_Pirate_Yacht_Club.View
             Console.WriteLine("1. Register new boat");
             Console.WriteLine("2. Edit boat");
             Console.WriteLine("3. Delete boat");
-            Console.WriteLine("4. Kebabrulle");
-            Console.WriteLine("5. ");
-            Console.WriteLine("6. ");
-            Console.WriteLine("7. ");
-            Console.WriteLine("8. ");
             int menuChoice = Convert.ToInt32(Console.ReadLine());
 
             switch (menuChoice)
             {
 
                 case 1:
-                    Console.WriteLine("1 valt");
                     registerBoat();
                     break;
                 case 2:
-                    Console.WriteLine("2 valt");
                     editBoat();
                     break;
                 case 3:
-                    Console.WriteLine("3 valt");
                     deleteBoat();
                     break;
                 case 4:
@@ -107,12 +98,79 @@ namespace Jolly_Pirate_Yacht_Club.View
 
         public void editBoat()
         {
-            throw new System.NotImplementedException();
+            int memberID;
+            int boatID;
+
+            Console.WriteLine("=========================");
+            Console.WriteLine("Enter your member ID.");
+
+            memberID = Int32.Parse(Console.ReadLine());
+
+            Console.WriteLine("===================");
+            Console.WriteLine("Enter your boat ID.");
+            boatID = Int32.Parse(Console.ReadLine());
+
+            try
+            {
+                database.changeBoatInformation(memberID, boatID);        
+            }
+            catch (Exception e)
+            {
+                System.Console.WriteLine(e);
+                throw new Exception("Error when editing boat");
+            }
+
         }
 
         public void deleteBoat()
         {
-            throw new System.NotImplementedException();
+            int memberID;
+            int boatID;
+            XAttribute uniqueBoat;
+
+            Console.WriteLine("=========================");
+            Console.WriteLine("Enter your member ID.");
+
+            memberID = Int32.Parse(Console.ReadLine());
+
+            Console.WriteLine("===================");
+            Console.WriteLine("Enter your boat ID.");
+            boatID = Int32.Parse(Console.ReadLine());
+
+            try
+            {
+               uniqueBoat = database.searchUniqueBoat(memberID, boatID);
+            }
+            catch
+            {
+                throw new Exception("Error while deleting member");
+            }
+            
+            Console.WriteLine("=========================");
+            Console.WriteLine($"Do you want to delete boat ID {uniqueBoat.Value}?");
+            Console.WriteLine("1. Yes");
+            Console.WriteLine("2. No");
+
+            switch (Console.ReadLine())
+            {
+                case "1":
+                    try
+                    {
+                        database.removeBoat(memberID, boatID);        
+                    }
+                    catch (Exception e)
+                    {
+                        System.Console.WriteLine(e);
+                        throw new Exception("Error when removing boat");
+                    }
+                    break;
+
+                case "2":
+                    break;
+                
+                default:
+                    break;
+            }
         }
     }
 }

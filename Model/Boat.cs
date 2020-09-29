@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Jolly_Pirate_Yacht_Club.Model
 {
@@ -33,9 +31,12 @@ namespace Jolly_Pirate_Yacht_Club.Model
         public int ID
         {
             get => default;
-            private set
+            set
             {
-                //
+                if (value <= 0)
+                {
+                    throw new Exception("Length cannot be less than zero");
+                }
             }
         }
     }

@@ -1,11 +1,8 @@
 ﻿using System;
 using Jolly_Pirate_Yacht_Club.Model;
-using System.Collections.Generic;
-using System.Text;
-using System.Net;
-using System.IO;
-using System.Text.RegularExpressions;
-using System.Diagnostics;
+using System.Xml.Linq;
+
+
 
 namespace Jolly_Pirate_Yacht_Club.View
 {
@@ -21,7 +18,7 @@ namespace Jolly_Pirate_Yacht_Club.View
             Console.WriteLine("1. Register new member");
             Console.WriteLine("2. Edit member");
             Console.WriteLine("3. Delete member");
-            Console.WriteLine("3. List of all members");
+            Console.WriteLine("4. List of all members");
             int menuChoice = Convert.ToInt32(Console.ReadLine());
 
             switch (menuChoice)
@@ -33,7 +30,7 @@ namespace Jolly_Pirate_Yacht_Club.View
                     editMember();
                     break;
                 case 3:
-                    deleteMember();
+                    removeMember();
                     break;
                 case 4:
                     Console.WriteLine("4 valt");
@@ -74,6 +71,9 @@ namespace Jolly_Pirate_Yacht_Club.View
             try
             {
                 database.createMember(name, socialSecurityNumber);
+                Console.WriteLine("===================");
+                System.Console.WriteLine("Member created, press any button to close");
+                Console.ReadKey(true);
             } 
             catch (Exception e) 
             {
@@ -97,7 +97,9 @@ namespace Jolly_Pirate_Yacht_Club.View
 
             try
             {
-                database.searchUniqueMember(id);
+                var test = database.searchUniqueMember(id);
+
+                database.changeMemberInformation(test, id);
             }
             catch
             {
@@ -105,9 +107,10 @@ namespace Jolly_Pirate_Yacht_Club.View
             }
         }
 
-        public void deleteMember()
+        public void removeMember()
         {
             int id;
+            XAttribute uniqueMember;
             do
             {
                 Console.WriteLine("=========================");
@@ -116,10 +119,9 @@ namespace Jolly_Pirate_Yacht_Club.View
 
 
             } while (id.ToString().Length < 0);
-
             try
             {
-                database.searchUniqueMember(id);
+               uniqueMember = database.searchUniqueMember(id);
             }
             catch
             {
@@ -127,14 +129,14 @@ namespace Jolly_Pirate_Yacht_Club.View
             }
             
             Console.WriteLine("=========================");
-            Console.WriteLine("Do you want to delete member?");
+            Console.WriteLine($"Do you want to delete {uniqueMember.Value}?");
             Console.WriteLine("1. Yes");
             Console.WriteLine("2. No");
 
             switch (Console.ReadLine())
             {
                 case "1":
-                    database.deleteMember(id);
+                    database.removeMember(id);
                     break;
 
                 case "2":

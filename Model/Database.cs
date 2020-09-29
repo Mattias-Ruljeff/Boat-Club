@@ -1,13 +1,7 @@
 ﻿using System;
-using System.IO;
 using System.Linq;
-using System.Xml;
-using Jolly_Pirate_Yacht_Club.View;
 using System.Collections.Generic;
-using System.Text;
-using System.Reflection.Emit;
 using System.Xml.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace Jolly_Pirate_Yacht_Club.Model
 {
@@ -41,7 +35,7 @@ namespace Jolly_Pirate_Yacht_Club.Model
 
             Console.WriteLine(databaseDocument);
 
-            xmlDoc.Descendants("Members")
+            databaseDocument.Descendants("Members")
                     .FirstOrDefault()
                     .Add(new XElement("Member",
                     new XAttribute("memberId", memberId),
@@ -53,32 +47,59 @@ namespace Jolly_Pirate_Yacht_Club.Model
         
         }
 
+        public XAttribute searchUniqueMember(int memberID)
+        {
+            return databaseDocument.Descendants("Member")
+                                    .Where(id => (int)id
+                                    .Attribute("memberId") == memberID)
+                                    .Single()
+                                    .Attribute("name");
+    
+        }
+        public void changeMemberInformation(XAttribute name, int memberID)
+        {   
+            string controlledName = "";
+            do
+            {
+                Console.WriteLine($"Enter new name for {name.Value}?");
+                controlledName = Console.ReadLine();
+                
+            } while (controlledName.Length < 1);
+            databaseDocument.Descendants("Member")
+                                    .Where(id => (int)id.Attribute("memberId") == memberID).Single().SetAttributeValue("name", controlledName);
+                                    
+            xmlDoc.Save(xmlFilePath);
+        }
+
+        public void removeMember(int memberID)
+        {
+            databaseDocument.Descendants("Member")
+                .Where(id => (int)id.Attribute("memberId") == memberID)
+                .Remove();
+                            
+            xmlDoc.Save(xmlFilePath);   
+        }
         public void readMemberListFile()
         {
             throw new System.NotImplementedException();
         }
 
-        public void deleteMember(int memberId)
+        public dynamic searchUniqueBoat(int memberID, int boatID)
         {
-            throw new System.NotImplementedException();
-        }
+            return databaseDocument.Descendants("Member")
+                                    .Where(member => (int)member.Attribute("memberId") == memberID)
+                                    .Descendants("Boat")
+                                    .Where(boat => (int)boat.Attribute("boatId") == boatID)
+                                    .Single()
+                                    .Attribute("boatId");
+             
 
-        public void changeMemberInformation()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void searchUniqueMember(int memberID)
-        {
-            throw new System.NotImplementedException();
         }
 
         public void addBoat(int memberId, string type, int length)
         {
             int boatId = ((from member in databaseDocument.Descendants("Boat")
                           select (int)member.Attribute("boatId")).DefaultIfEmpty(0).Max()) + 1;
-
-            Console.WriteLine(databaseDocument);
 
             xmlDoc.Descendants("Member")
                     .Where(x => (int)x.Attribute("memberId") == memberId).FirstOrDefault()
@@ -93,9 +114,79 @@ namespace Jolly_Pirate_Yacht_Club.Model
         
         }
 
-        public void changeBoatInformation()
+        public void changeBoatInformation(int memberID, int boatID)
         {
-            throw new System.NotImplementedException();
+            // XAttribute memberInformation = searchUniqueMember(memberID);
+
+            string newType;
+            do
+            {
+                Console.WriteLine($"Choose new boat type?");
+                Console.WriteLine($"1. Sailboat");
+                Console.WriteLine($"2. Motorsailer?");
+                Console.WriteLine($"3. Kayak/Canoe");
+                Console.WriteLine($"4. Other");
+                
+                newType = Console.ReadLine();
+                
+                if (newType == "1")
+                {
+                    newType = "Sailboat";
+                }
+                else if (newType == "2")
+                {
+                    newType = "Motorsailer";
+                }
+                else if (newType == "3")
+                {
+                    newType = "Kayak/Canoe";
+                }
+                else if (newType == "4")
+                {
+                    newType = "Other";
+                }
+                else
+                {
+                    Console.WriteLine("Not a valid type");
+                }
+                
+            } while (newType.Length < 1);
+
+            databaseDocument.Descendants("Member")
+                            .Where(id => (int)id.Attribute("memberId") == memberID)
+                            .Descendants("Boat")
+                            .Where(x => (int)x.Attribute("boatId") == boatID)
+                            .Single()
+                            .SetAttributeValue("type", newType);
+               
+
+            string newLength;
+            do
+            {
+                Console.WriteLine($"Enter new length for?");
+                newLength = Console.ReadLine();
+                
+            } while (newLength.Length < 1);
+            databaseDocument.Descendants("Member")
+                            .Where(id => (int)id.Attribute("memberId") == memberID)
+                            .Descendants("Boat")
+                            .Where(x => (int)x.Attribute("boatId") == boatID)
+                            .Single()
+                            .SetAttributeValue("length", newLength);
+               
+            xmlDoc.Save(xmlFilePath);
+        }
+
+        public void removeBoat(int memberID, int boatID)
+        {
+            databaseDocument.Descendants("Member")
+                            .Where(id => (int)id.Attribute("memberId") == memberID)
+                            .Descendants("Boat")
+                            .Where(x => (int)x.Attribute("boatId") == boatID)
+                            .Remove();
+                            
+            xmlDoc.Save(xmlFilePath);
+            
         }
 
     }

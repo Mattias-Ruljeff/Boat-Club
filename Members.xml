@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Members>
-  <Member memberId="1" name="Hitlers Morsa" SSN="1234567891">
+  <Member memberId="1" name="Nisse" SSN="6510111234">
     <Boats>
-      <Boat boatId="1" type="Sailboat" length="45" />
+      <Boat boatId="1" type="Motorsailer" length="50" />
     </Boats>
   </Member>
 </Members>
