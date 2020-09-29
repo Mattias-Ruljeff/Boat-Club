@@ -1,12 +1,15 @@
 ﻿using System;
+using System.IO;
 using Jolly_Pirate_Yacht_Club.View;
 using System.Collections.Generic;
 using System.Text;
+using System.Reflection.Emit;
 
 namespace Jolly_Pirate_Yacht_Club.Model
 {
     public class Database
     {
+
         public void createMember(object member)
         {
             Console.WriteLine("member added");
@@ -31,7 +34,7 @@ namespace Jolly_Pirate_Yacht_Club.Model
             throw new System.NotImplementedException();
         }
 
-        public void searchUniqueMember()
+        public void searchUniqueMember(int memberID)
         {
             throw new System.NotImplementedException();
         }

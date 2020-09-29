@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\matti\\Skolan\\1DV607 UML\\Jolly Pirate Yacht Club\\Jolly pirate Yacht Club\\Jolly pirate Yacht Club.csproj": {}
+    "H:\\Skolan\\1DV607 UML\\jolly-pirate-yacht-club\\Jolly pirate Yacht Club.csproj": {}
   },
   "projects": {
-    "C:\\Users\\matti\\Skolan\\1DV607 UML\\Jolly Pirate Yacht Club\\Jolly pirate Yacht Club\\Jolly pirate Yacht Club.csproj": {
+    "H:\\Skolan\\1DV607 UML\\jolly-pirate-yacht-club\\Jolly pirate Yacht Club.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\matti\\Skolan\\1DV607 UML\\Jolly Pirate Yacht Club\\Jolly pirate Yacht Club\\Jolly pirate Yacht Club.csproj",
+        "projectUniqueName": "H:\\Skolan\\1DV607 UML\\jolly-pirate-yacht-club\\Jolly pirate Yacht Club.csproj",
         "projectName": "Jolly pirate Yacht Club",
-        "projectPath": "C:\\Users\\matti\\Skolan\\1DV607 UML\\Jolly Pirate Yacht Club\\Jolly pirate Yacht Club\\Jolly pirate Yacht Club.csproj",
-        "packagesPath": "C:\\Users\\matti\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\matti\\Skolan\\1DV607 UML\\Jolly Pirate Yacht Club\\Jolly pirate Yacht Club\\obj\\",
+        "projectPath": "H:\\Skolan\\1DV607 UML\\jolly-pirate-yacht-club\\Jolly pirate Yacht Club.csproj",
+        "packagesPath": "C:\\Users\\Mattias\\.nuget\\packages\\",
+        "outputPath": "H:\\Skolan\\1DV607 UML\\jolly-pirate-yacht-club\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\matti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Mattias\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

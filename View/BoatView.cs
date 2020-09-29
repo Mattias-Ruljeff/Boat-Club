@@ -7,7 +7,6 @@ namespace Jolly_Pirate_Yacht_Club.View
 {
     public class BoatView
     {
-        Database database = new Database();
         Boat boat = new Boat();
 
         public void boatMenu()

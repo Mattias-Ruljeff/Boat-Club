@@ -6,14 +6,14 @@ namespace Jolly_Pirate_Yacht_Club.Model
 {
     class Member
     {
-        public int socialSecurityNumber
+        public string socialSecurityNumber
         {
             get => default;
             set
             {
-                if (value.ToString() == "")
+                if (value == "")
                 {
-                    Console.WriteLine("Enter a number");
+                    throw new Exception("Social security number cannot be empty");
                 }
             }
         }
@@ -25,7 +25,7 @@ namespace Jolly_Pirate_Yacht_Club.Model
             {
                 if(value == "")
                 {
-                    Console.WriteLine("Enter a name");
+                    throw new Exception("Name cannot be empty");
                 }
             }
         }

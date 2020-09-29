@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jolly_Pirate_Yacht_Club.Model;
+using System;
 using System.Collections.Generic;
 using System.Text;
 

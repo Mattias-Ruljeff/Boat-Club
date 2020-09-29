@@ -11,3 +11,16 @@ C:\Users\matti\Skolan\1DV607 UML\Jolly Pirate Yacht Club\Jolly pirate Yacht Club
 C:\Users\matti\Skolan\1DV607 UML\Jolly Pirate Yacht Club\Jolly pirate Yacht Club\obj\Debug\netcoreapp3.1\Jolly pirate Yacht Club.dll
 C:\Users\matti\Skolan\1DV607 UML\Jolly Pirate Yacht Club\Jolly pirate Yacht Club\obj\Debug\netcoreapp3.1\Jolly pirate Yacht Club.pdb
 C:\Users\matti\Skolan\1DV607 UML\Jolly Pirate Yacht Club\Jolly pirate Yacht Club\obj\Debug\netcoreapp3.1\Jolly pirate Yacht Club.genruntimeconfig.cache
+H:\Skolan\1DV607 UML\jolly-pirate-yacht-club\bin\Debug\netcoreapp3.1\Jolly pirate Yacht Club.exe
+H:\Skolan\1DV607 UML\jolly-pirate-yacht-club\bin\Debug\netcoreapp3.1\Jolly pirate Yacht Club.deps.json
+H:\Skolan\1DV607 UML\jolly-pirate-yacht-club\bin\Debug\netcoreapp3.1\Jolly pirate Yacht Club.runtimeconfig.json
+H:\Skolan\1DV607 UML\jolly-pirate-yacht-club\bin\Debug\netcoreapp3.1\Jolly pirate Yacht Club.runtimeconfig.dev.json
+H:\Skolan\1DV607 UML\jolly-pirate-yacht-club\bin\Debug\netcoreapp3.1\Jolly pirate Yacht Club.dll
+H:\Skolan\1DV607 UML\jolly-pirate-yacht-club\bin\Debug\netcoreapp3.1\Jolly pirate Yacht Club.pdb
+H:\Skolan\1DV607 UML\jolly-pirate-yacht-club\obj\Debug\netcoreapp3.1\Jolly pirate Yacht Club.csprojAssemblyReference.cache
+H:\Skolan\1DV607 UML\jolly-pirate-yacht-club\obj\Debug\netcoreapp3.1\Jolly pirate Yacht Club.AssemblyInfoInputs.cache
+H:\Skolan\1DV607 UML\jolly-pirate-yacht-club\obj\Debug\netcoreapp3.1\Jolly pirate Yacht Club.AssemblyInfo.cs
+H:\Skolan\1DV607 UML\jolly-pirate-yacht-club\obj\Debug\netcoreapp3.1\Jolly pirate Yacht Club.csproj.CoreCompileInputs.cache
+H:\Skolan\1DV607 UML\jolly-pirate-yacht-club\obj\Debug\netcoreapp3.1\Jolly pirate Yacht Club.dll
+H:\Skolan\1DV607 UML\jolly-pirate-yacht-club\obj\Debug\netcoreapp3.1\Jolly pirate Yacht Club.pdb
+H:\Skolan\1DV607 UML\jolly-pirate-yacht-club\obj\Debug\netcoreapp3.1\Jolly pirate Yacht Club.genruntimeconfig.cache

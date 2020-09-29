@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Net;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace Jolly_Pirate_Yacht_Club.View
 {
@@ -19,11 +20,7 @@ namespace Jolly_Pirate_Yacht_Club.View
             Console.WriteLine("1. Register new member");
             Console.WriteLine("2. Edit member");
             Console.WriteLine("3. Delete member");
-            Console.WriteLine("4. ");
-            Console.WriteLine("5. ");
-            Console.WriteLine("6. ");
-            Console.WriteLine("7. ");
-            Console.WriteLine("8. ");
+            Console.WriteLine("3. List of all members");
             int menuChoice = Convert.ToInt32(Console.ReadLine());
 
             switch (menuChoice)
@@ -48,31 +45,65 @@ namespace Jolly_Pirate_Yacht_Club.View
 
         public void registerMember()
         {
+            string name;
+            do
+            {
             Console.WriteLine("=========================");
             Console.WriteLine("Enter new name.");
 
-            string name = Console.ReadLine();
+            name = Console.ReadLine();
+
+
+            } while (name == "");
 
             member.name = name;
 
-            Console.WriteLine("===================");
-            Console.WriteLine("Enter social security number");
+            string socialSecurityNumber;
+            //Regex r = new Regex("[0-9]{10,10}?", RegexOptions.None);
+            //Match m;
 
-            int socialSecurityNumber = Convert.ToInt32(Console.ReadLine());
+            do
+            {
+                Console.WriteLine("===================");
+                Console.WriteLine("Enter social security number, 10 numbers");
+
+                socialSecurityNumber = Console.ReadLine();
+                //m = r.Match(socialSecurityNumber);
+
+
+            } while (socialSecurityNumber.Length == 11);
             member.socialSecurityNumber = socialSecurityNumber;
             try
             {
-            database.createMember(member);
+                database.createMember(socialSecurityNumber);
             } 
             catch
             {
-                Console.WriteLine("Enter a name");
+                throw new Exception("Enter a valid social security number");
             }
 
         }
 
         public void editMember()
         {
+            int id;
+            do
+            {
+                Console.WriteLine("=========================");
+                Console.WriteLine("Enter member ID.");
+                id = Convert.ToInt32(Console.ReadLine());
+
+
+            } while (id.ToString().Length < 0);
+
+            try
+            {
+                database.searchUniqueMember(id);
+            }
+            catch
+            {
+                Console.WriteLine("Enter a name");
+            }
             throw new System.NotImplementedException();
         }
 
