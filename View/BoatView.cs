@@ -8,6 +8,7 @@ namespace Jolly_Pirate_Yacht_Club.View
     public class BoatView
     {
         Boat boat = new Boat();
+        Database database = new Database();
 
         public void boatMenu()
         {
@@ -17,7 +18,7 @@ namespace Jolly_Pirate_Yacht_Club.View
             Console.WriteLine("1. Register new boat");
             Console.WriteLine("2. Edit boat");
             Console.WriteLine("3. Delete boat");
-            Console.WriteLine("4. ");
+            Console.WriteLine("4. Kebabrulle");
             Console.WriteLine("5. ");
             Console.WriteLine("6. ");
             Console.WriteLine("7. ");
@@ -50,7 +51,58 @@ namespace Jolly_Pirate_Yacht_Club.View
 
         public void registerBoat()
         {
-            throw new System.NotImplementedException();
+            int memberID;
+            string type;
+            int length;
+
+            Console.WriteLine("=========================");
+            Console.WriteLine("Enter your member ID.");
+
+            memberID = Int32.Parse(Console.ReadLine());
+
+            Console.WriteLine("===================");
+            Console.WriteLine("Select your boat type.");
+            Console.WriteLine("1. Sailboat");
+            Console.WriteLine("2. Motorsailer");
+            Console.WriteLine("3. Kayak/Canoe");
+            Console.WriteLine("4. Other");
+
+            type = Console.ReadLine();
+
+            if (type == "1")
+            {
+                type = "Sailboat";
+            }
+            else if (type == "2")
+            {
+                type = "Motorsailer";
+            }
+            else if (type == "3")
+            {
+                type = "Kayak/Canoe";
+            }
+            else if (type == "4")
+            {
+                type = "Other";
+            }
+            else
+            {
+                Console.WriteLine("Not a valid type");
+            }
+
+            Console.WriteLine("Enter length");
+            length = Int32.Parse(Console.ReadLine());
+
+            try
+            {
+                database.addBoat(memberID, type, length);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw new Exception("Error while creating new member");
+            }
+
         }
 
         public void editBoat()

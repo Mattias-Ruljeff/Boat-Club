@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Xml;
 using Jolly_Pirate_Yacht_Club.View;
 using System.Collections.Generic;
@@ -12,12 +13,14 @@ namespace Jolly_Pirate_Yacht_Club.Model
 {
     public class Database
     {
+        private XDocument databaseDocument;
         private string __databaseFile = "Members.xml";
         XDocument xmlDoc;
 
         public Database ()
         {
             xmlDoc = XDocument.Load(xmlFilePath);
+            databaseDocument = getDdatabaseDocument();
         }
         private string xmlFilePath
         {
@@ -31,15 +34,23 @@ namespace Jolly_Pirate_Yacht_Club.Model
         }
 
 
-        public void createMember(object member)
+        public void createMember(string name, string SSN)
         {
-            var test = getDdatabaseDocument();
-            Console.WriteLine(test);
-        }
+            int memberId = ((from member in databaseDocument.Descendants("Member")
+                          select (int)member.Attribute("memberId")).DefaultIfEmpty(0).Max()) + 1;
 
-        public void writeMemberListFile()
-        {
-            throw new System.NotImplementedException();
+            Console.WriteLine(databaseDocument);
+
+            xmlDoc.Descendants("Members")
+                    .FirstOrDefault()
+                    .Add(new XElement("Member",
+                    new XAttribute("memberId", memberId),
+                    new XAttribute("name", name),
+                    new XAttribute("SSN", SSN),
+                    new XElement("Boats")));
+
+            xmlDoc.Save(xmlFilePath);
+        
         }
 
         public void readMemberListFile()
@@ -47,7 +58,7 @@ namespace Jolly_Pirate_Yacht_Club.Model
             throw new System.NotImplementedException();
         }
 
-        public void deleteMember()
+        public void deleteMember(int memberId)
         {
             throw new System.NotImplementedException();
         }
@@ -62,9 +73,24 @@ namespace Jolly_Pirate_Yacht_Club.Model
             throw new System.NotImplementedException();
         }
 
-        public void addBoatToMember()
+        public void addBoat(int memberId, string type, int length)
         {
-            throw new System.NotImplementedException();
+            int boatId = ((from member in databaseDocument.Descendants("Boat")
+                          select (int)member.Attribute("boatId")).DefaultIfEmpty(0).Max()) + 1;
+
+            Console.WriteLine(databaseDocument);
+
+            xmlDoc.Descendants("Member")
+                    .Where(x => (int)x.Attribute("memberId") == memberId).FirstOrDefault()
+                    .Descendants("Boats")
+                    .FirstOrDefault()
+                    .Add(new XElement("Boat",
+                    new XAttribute("boatId", boatId),
+                    new XAttribute("type", type),
+                    new XAttribute("length", length)));
+
+            xmlDoc.Save(xmlFilePath);
+        
         }
 
         public void changeBoatInformation()

@@ -1,4 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Members>
-	
+  <Member memberId="1" name="Hitlers Morsa" SSN="1234567891">
+    <Boats>
+      <Boat boatId="1" type="Sailboat" length="45" />
+    </Boats>
+  </Member>
 </Members>

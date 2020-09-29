@@ -5,6 +5,7 @@ using System.Text;
 using System.Net;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Diagnostics;
 
 namespace Jolly_Pirate_Yacht_Club.View
 {
@@ -56,8 +57,6 @@ namespace Jolly_Pirate_Yacht_Club.View
 
             } while (name == "");
 
-            member.name = name;
-
             string socialSecurityNumber;
             //Regex r = new Regex("[0-9]{10,10}?", RegexOptions.None);
             //Match m;
@@ -72,14 +71,14 @@ namespace Jolly_Pirate_Yacht_Club.View
 
 
             } while (socialSecurityNumber.Length == 11);
-            member.socialSecurityNumber = socialSecurityNumber;
             try
             {
-                database.createMember(socialSecurityNumber);
+                database.createMember(name, socialSecurityNumber);
             } 
-            catch
+            catch (Exception e) 
             {
-                throw new Exception("Enter a valid social security number");
+                Console.WriteLine(e);
+                throw new Exception("Error while creating new member");
             }
 
         }
@@ -102,14 +101,49 @@ namespace Jolly_Pirate_Yacht_Club.View
             }
             catch
             {
-                Console.WriteLine("Enter a name");
+                throw new Exception("Error while editing member");
             }
-            throw new System.NotImplementedException();
         }
 
         public void deleteMember()
         {
-            throw new System.NotImplementedException();
+            int id;
+            do
+            {
+                Console.WriteLine("=========================");
+                Console.WriteLine("Enter member ID.");
+                id = Convert.ToInt32(Console.ReadLine());
+
+
+            } while (id.ToString().Length < 0);
+
+            try
+            {
+                database.searchUniqueMember(id);
+            }
+            catch
+            {
+                throw new Exception("Error while deleting member");
+            }
+            
+            Console.WriteLine("=========================");
+            Console.WriteLine("Do you want to delete member?");
+            Console.WriteLine("1. Yes");
+            Console.WriteLine("2. No");
+
+            switch (Console.ReadLine())
+            {
+                case "1":
+                    database.deleteMember(id);
+                    break;
+
+                case "2":
+                    break;
+                
+                default:
+                    break;
+
+            }
         }
     }
 }
