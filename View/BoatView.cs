@@ -12,11 +12,13 @@ namespace Jolly_Pirate_Yacht_Club.View
         public void boatMenu()
         {
             Console.WriteLine("=========================");
-            Console.WriteLine("Boat-page.");
-            Console.WriteLine("Choose a number!");
+            Console.WriteLine("Manage boats");
+            Console.WriteLine("=========================");
+            Console.WriteLine("What can I help you with today?");
             Console.WriteLine("1. Register new boat");
             Console.WriteLine("2. Edit boat");
             Console.WriteLine("3. Delete boat");
+            Console.WriteLine("4. Implement go back");
             int menuChoice = Convert.ToInt32(Console.ReadLine());
 
             switch (menuChoice)

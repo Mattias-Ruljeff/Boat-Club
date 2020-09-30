@@ -8,7 +8,7 @@ namespace Jolly_Pirate_Yacht_Club.Model
     public class Database
     {
         private XDocument databaseDocument;
-        private string __databaseFile = "Members.xml";
+        private string __databaseFile = "BoatClub.xml";
         XDocument xmlDoc;
 
         public Database ()
@@ -35,7 +35,7 @@ namespace Jolly_Pirate_Yacht_Club.Model
 
             Console.WriteLine(databaseDocument);
 
-            databaseDocument.Descendants("Members")
+            databaseDocument.Descendants("BoatClub")
                     .FirstOrDefault()
                     .Add(new XElement("Member",
                     new XAttribute("memberId", memberId),
@@ -47,21 +47,21 @@ namespace Jolly_Pirate_Yacht_Club.Model
         
         }
 
-        public XAttribute searchUniqueMember(int memberID)
+        public XElement searchUniqueMember(int memberID)
         {
-            return databaseDocument.Descendants("Member")
+            var member = databaseDocument.Descendants("Member")
                                     .Where(id => (int)id
                                     .Attribute("memberId") == memberID)
-                                    .Single()
-                                    .Attribute("name");
+                                    .Single();
+            return member;
     
         }
-        public void changeMemberInformation(XAttribute name, int memberID)
+        public void changeMemberInformation(XElement name, int memberID)
         {   
             string controlledName = "";
             do
             {
-                Console.WriteLine($"Enter new name for {name.Value}?");
+                Console.WriteLine($"Enter new name for {name.Value}");
                 controlledName = Console.ReadLine();
                 
             } while (controlledName.Length < 1);
@@ -121,7 +121,7 @@ namespace Jolly_Pirate_Yacht_Club.Model
             string newType;
             do
             {
-                Console.WriteLine($"Choose new boat type?");
+                Console.WriteLine($"Choose new boat type");
                 Console.WriteLine($"1. Sailboat");
                 Console.WriteLine($"2. Motorsailer?");
                 Console.WriteLine($"3. Kayak/Canoe");
@@ -147,7 +147,7 @@ namespace Jolly_Pirate_Yacht_Club.Model
                 }
                 else
                 {
-                    Console.WriteLine("Not a valid type");
+                    Console.WriteLine("Not a valid boat type");
                 }
                 
             } while (newType.Length < 1);
@@ -163,7 +163,7 @@ namespace Jolly_Pirate_Yacht_Club.Model
             string newLength;
             do
             {
-                Console.WriteLine($"Enter new length for?");
+                Console.WriteLine($"Enter new length");
                 newLength = Console.ReadLine();
                 
             } while (newLength.Length < 1);
