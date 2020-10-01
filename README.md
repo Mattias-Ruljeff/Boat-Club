@@ -23,3 +23,7 @@
 ##### Dictionary
 
 - SSN = Social security number.
+
+#### Documentation
+
+Sequence diagrams pdf and Class diagrams pdf can be found in the documentation folder.
