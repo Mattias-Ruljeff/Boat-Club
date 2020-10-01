@@ -1,9 +1,5 @@
 ﻿using System;
 using Jolly_Pirate_Yacht_Club.Model;
-using System.Linq;
-using System.Xml.Linq;
-
-
 
 namespace Jolly_Pirate_Yacht_Club.View
 {
@@ -118,25 +114,25 @@ namespace Jolly_Pirate_Yacht_Club.View
         public void removeMember()
         {
             int id;
+            Member uniqueMember = new Member();
             do
             {
                 Console.WriteLine("=========================");
                 Console.WriteLine("Enter member ID.");
                 id = Convert.ToInt32(Console.ReadLine());
 
-
             } while (id.ToString().Length < 0);
-            // try
-            // {
-            //    uniqueMember = database.searchUniqueMember(id);
-            // }
-            // catch
-            // {
-            //     throw new Exception("Error while deleting member");
-            // }
+            try
+            {
+               uniqueMember = database.findMemberInDb(id);
+            }
+            catch
+            {
+                throw new Exception("Error while deleting member");
+            }
             
-            // Console.WriteLine("=========================");
-            // Console.WriteLine($"Do you want to delete {uniqueMember.Value}?");
+            Console.WriteLine("=========================");
+            Console.WriteLine($"Do you want to delete {uniqueMember.Name}?");
             Console.WriteLine("1. Yes");
             Console.WriteLine("2. No");
 

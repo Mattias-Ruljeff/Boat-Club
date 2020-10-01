@@ -1,21 +1,16 @@
 ﻿using System;
 using Newtonsoft.Json;
 using System.IO;
-using System.Linq;
-using System.Collections;
 using System.Collections.Generic;
-using System.Xml.Linq;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using Newtonsoft.Json.Linq;
-
 
 namespace Jolly_Pirate_Yacht_Club.Model
 {
     public class Database
     {
+        private dynamic database;
         public Database ()
         {
+            database = getDatabaseDocument();
         }
 //--------------------------Read database-----------------------------------
 
@@ -73,12 +68,10 @@ namespace Jolly_Pirate_Yacht_Club.Model
 
         public void createMember(string name, string ssn)
         {
-            // string test = ssn;
             string enteredSSN = checkSSNLength(ssn);
             bool memberExist = true;
-            var db = getDatabaseDocument();
             while (memberExist) {
-                memberExist = searchUniqueMember(enteredSSN);
+                memberExist = checkIfUserExist(enteredSSN);
                 if(memberExist)
                 {
                     Console.WriteLine("Member already exist");
@@ -93,43 +86,46 @@ namespace Jolly_Pirate_Yacht_Club.Model
 
             };
             var newMember = new Member {
-                ID = checkMemberHighestIDNumber(db),
+                ID = checkMemberHighestIDNumber(database),
                 Name = name,
                 SSN = ssn
 
             };
-            db.Add(newMember);
+            database.Add(newMember);
 
 
-            writeToDatabase(db);
+            writeToDatabase(database);
             Console.WriteLine("Member created, press any button to close");
             Console.WriteLine("===================");
             Console.ReadKey(true);
         }
-        public bool searchUniqueMember(string ssn)
+
+        public dynamic findMemberInDb(int id)
         {
-            var db = getDatabaseDocument();
-   
-            bool memberFound = false;
-            if(db.ToString().Length == 0){
-                return memberFound;
-            }
-            foreach (var member in db)
+            Member memberFromDb = new Member();
+            foreach (var member in database)
             {
-                System.Console.WriteLine(member);
-                // if(member == ssn)
-                // {
-                //     memberFound = true;
-                // }
+                if (member.ID == id)
+                {
+                   memberFromDb = member;
+                }
+            }
+            return memberFromDb;
+        }
+
+        public bool checkIfUserExist(string ssn)
+        {
+            bool memberFound = false;
+            if(database.ToString().Length == 0){
+                return memberFound;
             }
             return memberFound;    
         }
 
         public void changeMemberInformation(int id)
         {   
-            var db = getDatabaseDocument();
 
-            foreach (var member in db)
+            foreach (var member in database)
             {
                 if (member.ID == id)
                 {
@@ -145,30 +141,28 @@ namespace Jolly_Pirate_Yacht_Club.Model
                     member.SSN = newSSN;
                 }
             }
-            writeToDatabase(db);
+            writeToDatabase(database);
 
         }
         public void removeMember(int id)
         {
-            var db = getDatabaseDocument();
             Member memberToBeRemoved = new Member();
 
-            foreach (var member in db)
+            foreach (var member in database)
             {
                 if (member.ID == id)
                 {
                     memberToBeRemoved = member;
                 }
             }
-            db.Remove(memberToBeRemoved);
-            writeToDatabase(db);
+            database.Remove(memberToBeRemoved);
+            writeToDatabase(database);
   
         }
 
         public void displayAllMembers(string displayChoice)
         {
-            var db = getDatabaseDocument();
-            foreach (var member in db)
+            foreach (var member in database)
             {
                 member.ToString(displayChoice);
             }
@@ -194,16 +188,15 @@ namespace Jolly_Pirate_Yacht_Club.Model
         }
         public void addBoat(int memberId, string type, int length)
         {
-            var db = getDatabaseDocument();
             
-            foreach (var member in db)
+            foreach (var member in database)
             {
                 if (member.ID == memberId) 
                 {
-                    member.boatList.Add(new Boat { ID = checkBoatHighestIDNumber(db), Type = type, Length = length });
+                    member.boatList.Add(new Boat { ID = checkBoatHighestIDNumber(database), Type = type, Length = length });
                 }
             }
-            writeToDatabase(db);
+            writeToDatabase(database);
 
         }
 
@@ -214,9 +207,8 @@ namespace Jolly_Pirate_Yacht_Club.Model
 
         public void changeBoatInformation(int memberID, int boatID, string boatType, int boatLength)
         {
-            var db = getDatabaseDocument();
 
-            foreach (var member in db)
+            foreach (var member in database)
             {
                 if (member.ID == memberID)
                 {
@@ -228,24 +220,18 @@ namespace Jolly_Pirate_Yacht_Club.Model
                             boat.Length = boatLength; 
                         }
                     }
-
-                    // member.Name = newName;
-                    // Console.WriteLine("Enter new SSN: ");
-                    // string newSSN = checkSSNLength(Console.ReadLine());
-                    // member.SSN = newSSN;
                 }
             }
-            writeToDatabase(db);
+            writeToDatabase(database);
 
         }
 
         public void removeBoat(int memberID, int boatID)
         {
-            var db = getDatabaseDocument();
             Member memberFromDb = new Member();
             Boat boatToRemove = new Boat();
 
-            foreach (var member in db)
+            foreach (var member in database)
             {
                 if (member.ID == memberID)
                 {
@@ -261,7 +247,7 @@ namespace Jolly_Pirate_Yacht_Club.Model
                 member.boatList.Remove(boatToRemove);
                 }
             }
-            writeToDatabase(db);
+            writeToDatabase(database);
         }
     }
 

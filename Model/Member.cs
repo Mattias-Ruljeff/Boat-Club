@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Jolly_Pirate_Yacht_Club.Model
 {
@@ -28,15 +27,18 @@ namespace Jolly_Pirate_Yacht_Club.Model
         }
         
         public void ToString(string listType) {
-            string returnString = $"Name: {Name} ID: {ID}\n";
+            string returnString = "===================-Member-======================\n";
+            returnString += $"ID: {ID}\nName: {Name}\n";
 
             if (listType == "compact") {
-                returnString += $"Number of boats {boatList.Count}";
+                returnString += $"Number of boats {boatList.Count}\n";
             } else {
+                returnString += "---------------------Boats----------------------\n";
                 foreach (var boat in boatList)
                 {
-                    returnString += $"Boat ID: {boat.ID} Boat type: {boat.Type} Boat Length: {boat.Length}\n ==================================\n";
+                    returnString += $"Boat ID: {boat.ID} Boat type: {boat.Type} Boat Length: {boat.Length}\n";
                 }
+                returnString += "------------------------------------------------\n";
             }
             
             System.Console.WriteLine(returnString);
