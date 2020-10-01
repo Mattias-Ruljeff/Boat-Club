@@ -4,7 +4,7 @@
 1. Unzip the JollyPirate-folder and place it in your computer at : C:\Users\ . 
 2. Start the application by pressing "Jolly pirate Yacht Club.exe". 
 
-### Functions in the application:
+## Functions in the application:
 
 #### Member management
 1. Add new member.
@@ -19,3 +19,7 @@
 #### Create lists
 1. Create a compact list of all members and the amount of boats they own.
 2. Create a verbose list of all members and their boats with all the boats content.
+
+##### Dictionary
+
+- SSN = Social security number.

@@ -52,7 +52,7 @@ namespace Jolly_Pirate_Yacht_Club.Model
             return enteredSSN;
         }
 
-        public int checkMemberHighestIDNumber(dynamic db) 
+        public int checkMemberHighestIdNumber(dynamic db) 
         {
             int highestNumber = 0;
             foreach (var member in db)
@@ -87,7 +87,7 @@ namespace Jolly_Pirate_Yacht_Club.Model
             }
 
             var newMember = new MemberModel {
-                ID = checkMemberHighestIDNumber(data),
+                ID = checkMemberHighestIdNumber(data),
                 Name = name,
                 SSN = ssn
 
@@ -172,7 +172,7 @@ namespace Jolly_Pirate_Yacht_Club.Model
 
 //--------------------------Boat-----------------------------------
 
-        public int checkBoatHighestIDNumber(dynamic db) 
+        public int checkBoatHighestIdNumber(dynamic db) 
         {
             int highestNumber = 0;
             foreach (var member in db)
@@ -196,7 +196,7 @@ namespace Jolly_Pirate_Yacht_Club.Model
                 {
                     member.boatList.Add(new BoatModel 
                     {
-                        ID = checkBoatHighestIDNumber(data), Type = boatType, Length = length
+                        ID = checkBoatHighestIdNumber(data), Type = boatType, Length = length
                     });
                 }
             }

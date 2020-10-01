@@ -1,56 +1,87 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Jolly_pirate_Yacht_Club.Program">
-    <Position X="9.25" Y="4" Width="1.5" />
+    <Position X="6.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Jolly_Pirate_Yacht_Club.View.MemberView">
-    <Position X="11.25" Y="7.5" Width="1.5" />
+    <Position X="10.75" Y="5" Width="1.5" />
+    <Members>
+      <Field Name="database" Hidden="true" />
+      <Field Name="member" Hidden="true" />
+    </Members>
     <TypeIdentifier>
       <HashCode>IAAAIACAAAAAAABAAEAAAAAAAAAAAIAACAAAAAAAAAA=</HashCode>
       <FileName>View\MemberView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Jolly_Pirate_Yacht_Club.View.MainMenuView">
-    <Position X="11.25" Y="5" Width="1.5" />
+    <Position X="10.75" Y="2" Width="1.5" />
+    <Members>
+      <Field Name="boatView" Hidden="true" />
+      <Field Name="memberView" Hidden="true" />
+    </Members>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAEAAAACAAAAAAAAA=</HashCode>
       <FileName>View\MainMenuView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Jolly_Pirate_Yacht_Club.View.BoatView">
-    <Position X="11.25" Y="2.5" Width="1.5" />
+    <Position X="10.75" Y="3.25" Width="1.5" />
+    <Members>
+      <Field Name="database" Hidden="true" />
+    </Members>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAQBAAAAAAAAAEACAAIAAAAAAAAAAAAA=</HashCode>
       <FileName>View\BoatView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Jolly_Pirate_Yacht_Club.Model.MemberModel">
-    <Position X="6.5" Y="1" Width="1.5" />
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <Members>
+      <Field Name="_id" Hidden="true" />
+      <Field Name="_name" Hidden="true" />
+      <Field Name="_ssn" Hidden="true" />
+    </Members>
     <TypeIdentifier>
       <HashCode>EAAAIAAAAEAAgAAEAABAAAQAAAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Model\MemberModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Jolly_Pirate_Yacht_Club.Model.DatabaseModel">
-    <Position X="4.5" Y="1" Width="1.5" />
+    <Position X="0.75" Y="1.5" Width="2.5" />
+    <Members>
+      <Field Name="data" Hidden="true" />
+    </Members>
     <TypeIdentifier>
       <HashCode>IACQQBCAAAAAAQAAAAAAAAAACACEAIAAAAAQAAhAEQA=</HashCode>
       <FileName>Model\DatabaseModel.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Jolly_Pirate_Yacht_Club.Model.BoatModel">
+    <Position X="3.75" Y="5.75" Width="1.5" />
+    <Members>
+      <Field Name="_id" Hidden="true" />
+      <Field Name="_length" Hidden="true" />
+      <Field Name="_type" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAQAAABAAABAAAAAAAAABQAAAAAAAAA=</HashCode>
+      <FileName>Model\BoatModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Enum Name="ListType">
-    <Position X="11.25" Y="1" Width="1.5" />
+    <Position X="6.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>Enum\ListType.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="BoatType">
-    <Position X="13" Y="1" Width="1.5" />
+    <Position X="8.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BAAgAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAABAAAA=</HashCode>
       <FileName>Enum\BoatType.cs</FileName>
