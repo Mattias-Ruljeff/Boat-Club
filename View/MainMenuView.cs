@@ -2,7 +2,7 @@
 
 namespace Jolly_Pirate_Yacht_Club.View
 {
-    class MainMenu
+    class MainMenuView
     {
         MemberView memberView = new MemberView();
         BoatView boatView = new BoatView();

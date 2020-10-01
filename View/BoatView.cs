@@ -5,7 +5,7 @@ namespace Jolly_Pirate_Yacht_Club.View
 {
     public class BoatView
     {
-        Database database = new Database();
+        DatabaseModel database = new DatabaseModel();
 
         public void boatMenu()
         {
@@ -118,15 +118,6 @@ namespace Jolly_Pirate_Yacht_Club.View
             Console.WriteLine("Enter your boat ID.");
             boatID = Int32.Parse(Console.ReadLine());
 
-            Console.WriteLine("===================");
-            Console.WriteLine("Select your boat type.");
-            Console.WriteLine($"1. {BoatType.Sailboat}");
-            Console.WriteLine($"2. {BoatType.Motorsailer}");
-            Console.WriteLine($"3. {BoatType.Kayak}");
-            Console.WriteLine($"4. {BoatType.Other}");
-
-            menuChoice = Int32.Parse(Console.ReadLine());
-
              do
             {
                 Console.WriteLine("===================");
@@ -186,7 +177,7 @@ namespace Jolly_Pirate_Yacht_Club.View
         {
             int memberID;
             int boatID;
-            Boat uniqueBoat = new Boat();
+            BoatModel uniqueBoat = new BoatModel();
 
             Console.WriteLine("=========================");
             Console.WriteLine("Enter your member ID.");

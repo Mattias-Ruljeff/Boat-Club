@@ -2,7 +2,7 @@
 
 namespace Jolly_Pirate_Yacht_Club.Model
 {
-    class Boat
+    class BoatModel
     {
         private int _id;
         private BoatType _type;

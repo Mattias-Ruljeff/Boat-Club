@@ -2,12 +2,12 @@
 
 namespace Jolly_Pirate_Yacht_Club.Model
 {
-    class Member
+    class MemberModel
     {
         private int _id;
         private string _name;
         private string _ssn;
-        public List<Boat> boatList = new List<Boat>();
+        public List<BoatModel> boatList = new List<BoatModel>();
         public int ID
         {
             get { return _id; }

@@ -5,8 +5,8 @@ namespace Jolly_Pirate_Yacht_Club.View
 {
     public class MemberView
     {
-        Database database = new Database();
-        Member member = new Member();
+        DatabaseModel database = new DatabaseModel();
+        MemberModel member = new MemberModel();
         public void memberMenu()
         {
             Console.WriteLine("=========================");
@@ -112,7 +112,7 @@ namespace Jolly_Pirate_Yacht_Club.View
         public void removeMember()
         {
             int id;
-            Member uniqueMember = new Member();
+            MemberModel uniqueMember = new MemberModel();
             do
             {
                 Console.WriteLine("=========================");

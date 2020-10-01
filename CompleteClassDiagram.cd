@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Jolly_pirate_Yacht_Club.Program">
+    <Position X="9.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jolly_Pirate_Yacht_Club.View.MemberView">
+    <Position X="11.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAIACAAAAAAABAAEAAAAAAAAAAAIAACAAAAAAAAAA=</HashCode>
+      <FileName>View\MemberView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jolly_Pirate_Yacht_Club.View.MainMenuView">
+    <Position X="11.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAEAAAACAAAAAAAAA=</HashCode>
+      <FileName>View\MainMenuView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jolly_Pirate_Yacht_Club.View.BoatView">
+    <Position X="11.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQBAAAAAAAAAEACAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\BoatView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jolly_Pirate_Yacht_Club.Model.MemberModel">
+    <Position X="6.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAIAAAAEAAgAAEAABAAAQAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Model\MemberModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jolly_Pirate_Yacht_Club.Model.DatabaseModel">
+    <Position X="4.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IACQQBCAAAAAAQAAAAAAAAAACACEAIAAAAAQAAhAEQA=</HashCode>
+      <FileName>Model\DatabaseModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="ListType">
+    <Position X="11.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Enum\ListType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BoatType">
+    <Position X="13" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAgAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Enum\BoatType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

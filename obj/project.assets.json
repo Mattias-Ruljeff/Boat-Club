@@ -52,19 +52,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\oscar\\.nuget\\packages\\": {}
+    "C:\\Users\\Mattias\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\oscar\\Desktop\\TEST 2\\jolly-pirate-yacht-club\\Jolly pirate Yacht Club.csproj",
+      "projectUniqueName": "H:\\Skolan\\1DV607 UML\\jolly-pirate-yacht-club\\Jolly pirate Yacht Club.csproj",
       "projectName": "Jolly pirate Yacht Club",
-      "projectPath": "c:\\Users\\oscar\\Desktop\\TEST 2\\jolly-pirate-yacht-club\\Jolly pirate Yacht Club.csproj",
-      "packagesPath": "C:\\Users\\oscar\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\oscar\\Desktop\\TEST 2\\jolly-pirate-yacht-club\\obj\\",
+      "projectPath": "H:\\Skolan\\1DV607 UML\\jolly-pirate-yacht-club\\Jolly pirate Yacht Club.csproj",
+      "packagesPath": "C:\\Users\\Mattias\\.nuget\\packages\\",
+      "outputPath": "H:\\Skolan\\1DV607 UML\\jolly-pirate-yacht-club\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\oscar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Mattias\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

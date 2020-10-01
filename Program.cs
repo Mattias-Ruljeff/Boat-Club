@@ -8,7 +8,7 @@ namespace Jolly_pirate_Yacht_Club
         static void Main(string[] args)
         {
             Directory.SetCurrentDirectory(@"C:\Users\JollyPirate\");
-            MainMenu run = new MainMenu();
+            MainMenuView run = new MainMenuView();
             run.mainMenu();
         }
     }

@@ -5,12 +5,12 @@ using System.Collections.Generic;
 
 namespace Jolly_Pirate_Yacht_Club.Model
 {
-    public class Database
+    public class DatabaseModel
     {
-        private dynamic database;
-        public Database ()
+        private dynamic data;
+        public DatabaseModel ()
         {
-            database = getDatabaseDocument();
+            data = getDatabaseDocument();
         }
 //--------------------------Read database-----------------------------------
 
@@ -19,7 +19,7 @@ namespace Jolly_Pirate_Yacht_Club.Model
             try
             {
                 var json = System.IO.File.ReadAllText("Boatclub.json");
-                List<Member> list = JsonConvert.DeserializeObject<List<Member>>(json);
+                List<MemberModel> list = JsonConvert.DeserializeObject<List<MemberModel>>(json);
                 return list;
             }
             catch (System.Exception e)
@@ -86,22 +86,22 @@ namespace Jolly_Pirate_Yacht_Club.Model
 
             }
 
-            var newMember = new Member {
-                ID = checkMemberHighestIDNumber(database),
+            var newMember = new MemberModel {
+                ID = checkMemberHighestIDNumber(data),
                 Name = name,
                 SSN = ssn
 
             };
 
-            database.Add(newMember);
-            writeToDatabase(database);
+            data.Add(newMember);
+            writeToDatabase(data);
 
         }
 
         public dynamic findMemberInDb(int id)
         {
-            Member memberFromDb = new Member();
-            foreach (var member in database)
+            MemberModel memberFromDb = new MemberModel();
+            foreach (var member in data)
             {
                 if (member.ID == id)
                 {
@@ -114,7 +114,7 @@ namespace Jolly_Pirate_Yacht_Club.Model
         public bool checkIfUserExist(string ssn)
         {
             bool memberFound = false;
-            if(database.ToString().Length == 0)
+            if(data.ToString().Length == 0)
             {
                 return memberFound;
             }
@@ -123,7 +123,7 @@ namespace Jolly_Pirate_Yacht_Club.Model
 
         public void editMember(int id)
         {   
-            foreach (var member in database)
+            foreach (var member in data)
             {
                 if (member.ID == id)
                 {
@@ -140,29 +140,29 @@ namespace Jolly_Pirate_Yacht_Club.Model
                     member.SSN = newSSN;
                 }
             }
-            writeToDatabase(database);
+            writeToDatabase(data);
 
         }
 
         public void removeMember(int id)
         {
-            Member memberToBeRemoved = new Member();
+            MemberModel memberToBeRemoved = new MemberModel();
 
-            foreach (var member in database)
+            foreach (var member in data)
             {
                 if (member.ID == id)
                 {
                     memberToBeRemoved = member;
                 }
             }
-            database.Remove(memberToBeRemoved);
-            writeToDatabase(database);
+            data.Remove(memberToBeRemoved);
+            writeToDatabase(data);
 
         }
 
         public void displayAllMembers(ListType displayChoice)
         {
-            foreach (var member in database)
+            foreach (var member in data)
             {
                 member.ToString(displayChoice);
             }
@@ -190,23 +190,23 @@ namespace Jolly_Pirate_Yacht_Club.Model
 
         public void addBoat(int memberId, BoatType boatType, int length)
         {
-            foreach (var member in database)
+            foreach (var member in data)
             {
                 if (member.ID == memberId) 
                 {
-                    member.boatList.Add(new Boat 
+                    member.boatList.Add(new BoatModel 
                     {
-                        ID = checkBoatHighestIDNumber(database), Type = boatType, Length = length
+                        ID = checkBoatHighestIDNumber(data), Type = boatType, Length = length
                     });
                 }
             }
-            writeToDatabase(database);
+            writeToDatabase(data);
         }
 
         public dynamic searchUniqueBoat(int memberID, int boatID)
         {
-            Boat boatFromDb = new Boat();
-            foreach (var member in database)
+            BoatModel boatFromDb = new BoatModel();
+            foreach (var member in data)
             {
                 if (member.ID == memberID)
                 {
@@ -224,7 +224,7 @@ namespace Jolly_Pirate_Yacht_Club.Model
 
         public void editBoat(int memberID, int boatID, BoatType boatType, int boatLength)
         {
-            foreach (var member in database)
+            foreach (var member in data)
             {
                 if (member.ID == memberID)
                 {
@@ -232,21 +232,21 @@ namespace Jolly_Pirate_Yacht_Club.Model
                     {
                         if(boat.ID == boatID)
                         {
-                            boat.Type = boatType.ToString();
+                            boat.Type = boatType;
                             boat.Length = boatLength; 
                         }
                     }
                 }
             }
-            writeToDatabase(database);
+            writeToDatabase(data);
         }
 
         public void deleteBoat(int memberID, int boatID)
         {
-            Member memberFromDb = new Member();
-            Boat boatToRemove = new Boat();
+            MemberModel memberFromDb = new MemberModel();
+            BoatModel boatToRemove = new BoatModel();
 
-            foreach (var member in database)
+            foreach (var member in data)
             {
                 if (member.ID == memberID)
                 {
@@ -261,7 +261,7 @@ namespace Jolly_Pirate_Yacht_Club.Model
                     member.boatList.Remove(boatToRemove);
                 }
             }
-            writeToDatabase(database);
+            writeToDatabase(data);
         }
     }
 }
