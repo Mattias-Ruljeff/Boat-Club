@@ -20,8 +20,8 @@ namespace Jolly_Pirate_Yacht_Club.View
             Console.WriteLine("1. Register new member");
             Console.WriteLine("2. Edit member");
             Console.WriteLine("3. Delete member");
-            Console.WriteLine("4. List information of one member");
-            Console.WriteLine("5. List of all members");
+            Console.WriteLine("4. List compact Information");
+            Console.WriteLine("5. List verbose Information");
             int menuChoice = Convert.ToInt32(Console.ReadLine());
 
             switch (menuChoice)
@@ -36,10 +36,10 @@ namespace Jolly_Pirate_Yacht_Club.View
                     removeMember();
                     break;
                 case 4:
-                    displayOneMember();
+                    Console.WriteLine("4 valt");
                     break;
                 case 5:
-                    Console.WriteLine("4 valt");
+                    displayOneMember();
                     break;
                 default:
                     break;
@@ -60,25 +60,19 @@ namespace Jolly_Pirate_Yacht_Club.View
             } while (name == "");
 
             string socialSecurityNumber;
-            //Regex r = new Regex("[0-9]{10,10}?", RegexOptions.None);
-            //Match m;
-
             do
             {
                 Console.WriteLine("===================");
                 Console.WriteLine("Enter social security number, 10 numbers");
 
                 socialSecurityNumber = Console.ReadLine();
-                //m = r.Match(socialSecurityNumber);
 
 
-            } while (socialSecurityNumber.Length == 11);
+            } while (socialSecurityNumber.Length != 10);
             try
             {
                 database.createMember(name, socialSecurityNumber);
-                Console.WriteLine("===================");
-                System.Console.WriteLine("Member created, press any button to close");
-                Console.ReadKey(true);
+                
             } 
             catch (Exception e) 
             {
@@ -102,9 +96,9 @@ namespace Jolly_Pirate_Yacht_Club.View
 
             try
             {
-                var member = database.searchUniqueMember(id);
+                // var member = database.searchUniqueMember(id);
 
-                database.changeMemberInformation(member, id);
+                // database.changeMemberInformation(member, id);
             }
             catch
             {
@@ -115,7 +109,6 @@ namespace Jolly_Pirate_Yacht_Club.View
         public void removeMember()
         {
             int id;
-            XElement uniqueMember;
             do
             {
                 Console.WriteLine("=========================");
@@ -126,17 +119,17 @@ namespace Jolly_Pirate_Yacht_Club.View
             } while (id.ToString().Length < 0);
             try
             {
-               uniqueMember = database.searchUniqueMember(id);
+            //    uniqueMember = database.searchUniqueMember(id);
             }
             catch
             {
                 throw new Exception("Error while deleting member");
             }
             
-            Console.WriteLine("=========================");
-            Console.WriteLine($"Do you want to delete {uniqueMember.Value}?");
-            Console.WriteLine("1. Yes");
-            Console.WriteLine("2. No");
+            // Console.WriteLine("=========================");
+            // Console.WriteLine($"Do you want to delete {uniqueMember.Value}?");
+            // Console.WriteLine("1. Yes");
+            // Console.WriteLine("2. No");
 
             switch (Console.ReadLine())
             {
@@ -145,6 +138,7 @@ namespace Jolly_Pirate_Yacht_Club.View
                     break;
 
                 case "2":
+                    memberMenu();
                     break;
                 
                 default:
@@ -167,24 +161,26 @@ namespace Jolly_Pirate_Yacht_Club.View
 
             try
             {
-                var member = database.searchUniqueMember(memberId);
+                // var member = database.searchUniqueMember(memberId);
 
-                Console.WriteLine(member.Attribute("memberId"));
-                Console.WriteLine(member.Attribute("name"));
-                Console.WriteLine(member.Attribute("SSN"));
-                var childElements =
-                    from el in member.Descendants("Boats").Elements()
-                    select el;
-                foreach (XElement el in childElements)
-                {
-                    Console.WriteLine("=========================");
-                    Console.WriteLine("Boat ID: " + el.Attribute("boatId").Value);
-                    Console.WriteLine("Type: " + el.Attribute("type").Value);
-                    Console.WriteLine("Length: " + el.Attribute("length").Value);
-                }
-                
-                // Console.WriteLine(member.Descendants("Boat").Where(x => (int)x.Attribute("boatId") == i).Single());
-                
+                // Console.WriteLine("Member ID " + member.ID);
+
+                // Console.WriteLine("=========================");
+                // Console.WriteLine("Member information");
+                // Console.WriteLine("Member ID: " + member.Attribute("memberId").Value);
+                // Console.WriteLine("Name: " + member.Attribute("name").Value);
+                // Console.WriteLine("SSN: " + member.Attribute("SSN").Value);
+
+                // var childElements = from el in member.Descendants("Boats").Elements() select el;
+                // foreach (XElement el in childElements)
+                // {
+                //     Console.WriteLine("=========================");
+                //     Console.WriteLine("Boat information");
+                //     Console.WriteLine("Boat ID: " + el.Attribute("boatId").Value);
+                //     Console.WriteLine("Type: " + el.Attribute("type").Value);
+                //     Console.WriteLine("Length: " + el.Attribute("length").Value);
+                // }
+                // Console.WriteLine("=========================");
 
             }
             catch

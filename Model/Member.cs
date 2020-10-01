@@ -4,42 +4,40 @@ namespace Jolly_Pirate_Yacht_Club.Model
 {
     class Member
     {
-        public string socialSecurityNumber
+        private int _id;
+        private string _name;
+        private string _ssn;
+
+        public string SSN
         {
-            get => default;
+            get { return _ssn;}
             set
             {
-                if (value == "")
-                {
-                    throw new Exception("Social security number cannot be empty");
-                }
+               _ssn = value;
             }
         }
 
-        public string name
+        public string Name
         {
-            get => default;
+            get { return _name;}
             set
             {
-                if(value == "")
-                {
-                    throw new Exception("Name cannot be empty");
-                }
+                _name = value;
             }
         }
 
         public int ID
         {
-            get => default;
-            private set
+            get { return _id;}
+            set
             {
-                // leta i databas efter ID på sista medlem i medlemslistan, ta det och lägg på 1 för att skapa unikt ID.
+                _id = value;
             }
         }
 
-        public void getName()
+        public dynamic getName()
         {
-            throw new System.NotImplementedException();
+            return _name;
         }
     }
 

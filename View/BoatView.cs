@@ -7,7 +7,7 @@ namespace Jolly_Pirate_Yacht_Club.View
     public class BoatView
     {
         Boat boat = new Boat();
-        Database database = new Database();
+        // Database database = new Database();
 
         public void boatMenu()
         {
@@ -88,7 +88,7 @@ namespace Jolly_Pirate_Yacht_Club.View
 
             try
             {
-                database.addBoat(memberID, type, length);
+                // database.addBoat(memberID, type, length);
             }
             catch (Exception e)
             {
@@ -114,7 +114,7 @@ namespace Jolly_Pirate_Yacht_Club.View
 
             try
             {
-                database.changeBoatInformation(memberID, boatID);        
+                // database.changeBoatInformation(memberID, boatID);        
             }
             catch (Exception e)
             {
@@ -128,7 +128,6 @@ namespace Jolly_Pirate_Yacht_Club.View
         {
             int memberID;
             int boatID;
-            XAttribute uniqueBoat;
 
             Console.WriteLine("=========================");
             Console.WriteLine("Enter your member ID.");
@@ -141,7 +140,7 @@ namespace Jolly_Pirate_Yacht_Club.View
 
             try
             {
-               uniqueBoat = database.searchUniqueBoat(memberID, boatID);
+            //    uniqueBoat = database.searchUniqueBoat(memberID, boatID);
             }
             catch
             {
@@ -149,7 +148,7 @@ namespace Jolly_Pirate_Yacht_Club.View
             }
             
             Console.WriteLine("=========================");
-            Console.WriteLine($"Do you want to delete boat ID {uniqueBoat.Value}?");
+            // Console.WriteLine($"Do you want to delete boat ID {uniqueBoat.Value}?");
             Console.WriteLine("1. Yes");
             Console.WriteLine("2. No");
 
@@ -158,7 +157,7 @@ namespace Jolly_Pirate_Yacht_Club.View
                 case "1":
                     try
                     {
-                        database.removeBoat(memberID, boatID);        
+                        // database.removeBoat(memberID, boatID);        
                     }
                     catch (Exception e)
                     {

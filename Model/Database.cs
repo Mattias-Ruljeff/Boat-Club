@@ -1,192 +1,158 @@
 ﻿using System;
+using Newtonsoft.Json;
+using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using System.Xml.Linq;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using Newtonsoft.Json.Linq;
+
 
 namespace Jolly_Pirate_Yacht_Club.Model
 {
     public class Database
     {
-        private XDocument databaseDocument;
-        private string __databaseFile = "BoatClub.xml";
-        XDocument xmlDoc;
-
+        //open file stream
+        private MemberRegister database = new MemberRegister();
         public Database ()
         {
-            xmlDoc = XDocument.Load(xmlFilePath);
-            databaseDocument = getDdatabaseDocument();
+            database.members.Add(getDatabaseDocument());
+            foreach (var item in database.members)
+            {  
+                System.Console.WriteLine(item);                
+            }
+
+            // Member newMember = new Member {
+            //     ID = "1",
+            //     Name = "Hitler",
+            //     SSN = "8888884444"
+            // };
+            // System.Console.WriteLine(newMember.ID);
+            // memberRegister.memberList.Add(newMember);
+            // memberRegister.memberList.Add(new Member {
+            //     ID = "2",
+            //     Name = "Dan RC",
+            //     SSN = "88888844444"
+            // });
+            // memberRegister.memberList.Add(new Member {
+            //     ID = "3",
+            //     Name = "Hitler Farfar",
+            //     SSN = "88888844444"
+            // });
+            // memberRegister.memberList.Add(new Member {
+            //     ID = "4",
+            //     Name = "Hitlers Morsa",
+            //     SSN = "88888844444"
+            // });
+            // File.WriteAllText("BoatClub.json", JsonConvert.SerializeObject(memberRegister));
+
+
         }
-        private string xmlFilePath
+//--------------------------Read database-----------------------------------
+
+        public Newtonsoft.Json.Linq.JArray getDatabaseDocument () 
         {
-            get { return __databaseFile; }
-            set { }
-        }
-
-        public XDocument getDdatabaseDocument () 
-        {
-            return xmlDoc;
-        }
-
-
-        public void createMember(string name, string SSN)
-        {
-            int memberId = ((from member in databaseDocument.Descendants("Member")
-                          select (int)member.Attribute("memberId")).DefaultIfEmpty(0).Max()) + 1;
-
-            Console.WriteLine(databaseDocument);
-
-            databaseDocument.Descendants("BoatClub")
-                    .FirstOrDefault()
-                    .Add(new XElement("Member",
-                    new XAttribute("memberId", memberId),
-                    new XAttribute("name", name),
-                    new XAttribute("SSN", SSN),
-                    new XElement("Boats")));
-
-            xmlDoc.Save(xmlFilePath);
-        
-        }
-
-        public XElement searchUniqueMember(int memberID)
-        {
-            var member = databaseDocument.Descendants("Member")
-                                    .Where(id => (int)id
-                                    .Attribute("memberId") == memberID)
-                                    .Single();
-            return member;
-    
-        }
-        public void changeMemberInformation(XElement name, int memberID)
-        {   
-            string controlledName = "";
-            do
+            try
             {
-                Console.WriteLine($"Enter new name for {name.Value}");
-                controlledName = Console.ReadLine();
-                
-            } while (controlledName.Length < 1);
-            databaseDocument.Descendants("Member")
-                                    .Where(id => (int)id.Attribute("memberId") == memberID).Single().SetAttributeValue("name", controlledName);
-                                    
-            xmlDoc.Save(xmlFilePath);
+                using (StreamReader r = new StreamReader("BoatClub.json"))
+                {
+                    string json = r.ReadToEnd();
+                    dynamic array = JsonConvert.DeserializeObject(json);
+                    return array;
+                }    
+            }
+            catch (System.Exception e)
+            {
+                System.Console.WriteLine(e);
+                throw;
+            }
         }
 
-        public void removeMember(int memberID)
-        {
-            databaseDocument.Descendants("Member")
-                .Where(id => (int)id.Attribute("memberId") == memberID)
-                .Remove();
-                            
-            xmlDoc.Save(xmlFilePath);   
-        }
         public void readMemberListFile()
         {
             throw new System.NotImplementedException();
         }
 
-        public dynamic searchUniqueBoat(int memberID, int boatID)
+//--------------------------Member-----------------------------------
+        public void createMember(string name, string ssn)
         {
-            return databaseDocument.Descendants("Member")
-                                    .Where(member => (int)member.Attribute("memberId") == memberID)
-                                    .Descendants("Boat")
-                                    .Where(boat => (int)boat.Attribute("boatId") == boatID)
-                                    .Single()
-                                    .Attribute("boatId");
-             
-
-        }
-
-        public void addBoat(int memberId, string type, int length)
-        {
-            int boatId = ((from member in databaseDocument.Descendants("Boat")
-                          select (int)member.Attribute("boatId")).DefaultIfEmpty(0).Max()) + 1;
-
-            xmlDoc.Descendants("Member")
-                    .Where(x => (int)x.Attribute("memberId") == memberId).FirstOrDefault()
-                    .Descendants("Boats")
-                    .FirstOrDefault()
-                    .Add(new XElement("Boat",
-                    new XAttribute("boatId", boatId),
-                    new XAttribute("type", type),
-                    new XAttribute("length", length)));
-
-            xmlDoc.Save(xmlFilePath);
-        
-        }
-
-        public void changeBoatInformation(int memberID, int boatID)
-        {
-            // XAttribute memberInformation = searchUniqueMember(memberID);
-
-            string newType;
-            do
+            try
             {
-                Console.WriteLine($"Choose new boat type");
-                Console.WriteLine($"1. Sailboat");
-                Console.WriteLine($"2. Motorsailer?");
-                Console.WriteLine($"3. Kayak/Canoe");
-                Console.WriteLine($"4. Other");
-                
-                newType = Console.ReadLine();
-                
-                if (newType == "1")
+                if(!searchUniqueMember(ssn))
                 {
-                    newType = "Sailboat";
-                }
-                else if (newType == "2")
-                {
-                    newType = "Motorsailer";
-                }
-                else if (newType == "3")
-                {
-                    newType = "Kayak/Canoe";
-                }
-                else if (newType == "4")
-                {
-                    newType = "Other";
+                   
+
+                    Console.WriteLine("Member created, press any button to close");
+                    return true;
                 }
                 else
                 {
-                    Console.WriteLine("Not a valid boat type");
+                    Console.WriteLine("Member already exist");
+                    Console.WriteLine("Enter a valid SSN");
+
+                    return false;
+                }
+                Member newMember = new Member {
+                                        ID = 1,
+                                        Name = name,
+                                        SSN = ssn
+                                    };
+
+                Console.WriteLine("===================");
+                Console.ReadKey(true);
+                
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
+        public bool searchUniqueMember(string ssn)
+        {
+            bool memberFound = false;
+            var dbDocument = getDatabaseDocument();
+            foreach (var list in dbDocument)
+            {
+                foreach (var member in list["members"])
+                {
+                    if(member["SSN"].ToString() == ssn)
+                    {
+                        memberFound = true;
+                    }
                 }
                 
-            } while (newType.Length < 1);
+            }
+            return memberFound;
 
-            databaseDocument.Descendants("Member")
-                            .Where(id => (int)id.Attribute("memberId") == memberID)
-                            .Descendants("Boat")
-                            .Where(x => (int)x.Attribute("boatId") == boatID)
-                            .Single()
-                            .SetAttributeValue("type", newType);
-               
+        }
+        public void changeMemberInformation(XElement name, int memberID)
+        {   
 
-            string newLength;
-            do
-            {
-                Console.WriteLine($"Enter new length");
-                newLength = Console.ReadLine();
-                
-            } while (newLength.Length < 1);
-            databaseDocument.Descendants("Member")
-                            .Where(id => (int)id.Attribute("memberId") == memberID)
-                            .Descendants("Boat")
-                            .Where(x => (int)x.Attribute("boatId") == boatID)
-                            .Single()
-                            .SetAttributeValue("length", newLength);
-               
-            xmlDoc.Save(xmlFilePath);
+        }
+        public void removeMember(int memberID)
+        {
+  
         }
 
+//--------------------------Boat-----------------------------------
+
+        public void addBoat(int memberId, string type, int length)
+        {
+
+        }
+        public void searchUniqueBoat(int memberID, int boatID)
+        {
+
+        }
+        public void changeBoatInformation(int memberID, int boatID)
+        {
+
+        }
         public void removeBoat(int memberID, int boatID)
         {
-            databaseDocument.Descendants("Member")
-                            .Where(id => (int)id.Attribute("memberId") == memberID)
-                            .Descendants("Boat")
-                            .Where(x => (int)x.Attribute("boatId") == boatID)
-                            .Remove();
-                            
-            xmlDoc.Save(xmlFilePath);
-            
+
         }
 
     }

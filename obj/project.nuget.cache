@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "yxZOX5Pe2zCj1sM4P34xv0ziM6OSYS5olHlQNXLlEoboNP4SUyzxN+NqUaBODCh/ZNNpauN6LfbmLY8c9uXerA==",
+  "dgSpecHash": "rba5KwhlQqxnw3RJSca8AAON0YlnwwsnJEQjb36vSiuPhdezHT/qEj7y+O045uj4/kqpvOjvqT/nISl0/TOLqQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\oscar\\Desktop\\TEST 2\\jolly-pirate-yacht-club\\Jolly pirate Yacht Club.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\oscar\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -6,4 +6,8 @@
     <RootNamespace>Jolly_Pirate_Yacht_Club</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
 </Project>

@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<BoatClub>
-  <Member memberId="1" name="Dan RC" SSN="4206969691337">
-    <Boats>
-      <Boat boatId="1" type="Motorsailer" length="420" />
-      <Boat boatId="2" type="Kayak/Canoe" length="1337" />
-    </Boats>
-  </Member>
-</BoatClub>
