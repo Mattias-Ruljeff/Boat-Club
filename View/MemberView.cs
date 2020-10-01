@@ -48,9 +48,13 @@ namespace Jolly_Pirate_Yacht_Club.View
             {
                 case 1:
                     database.displayAllMembers(ListType.Compact);
+                    System.Console.WriteLine("Press any button to exit");
+                    Console.ReadKey(true);
                     break;
                 case 2:
                     database.displayAllMembers(ListType.Verbose);
+                    System.Console.WriteLine("Press any button to exit");
+                    Console.ReadKey(true);
                     break;
                 default:
                     break;

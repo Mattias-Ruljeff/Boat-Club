@@ -12,7 +12,8 @@ namespace Jolly_Pirate_Yacht_Club.Model
         {
             data = getDatabaseDocument();
         }
-//--------------------------Read database-----------------------------------
+
+        //--------------------------Read database-----------------------------------
 
         public dynamic getDatabaseDocument() 
         {
@@ -166,8 +167,7 @@ namespace Jolly_Pirate_Yacht_Club.Model
             {
                 member.ToString(displayChoice);
             }
-            System.Console.WriteLine("Press any button to exit");
-            Console.ReadKey(true);
+
         }
 
 //--------------------------Boat-----------------------------------
