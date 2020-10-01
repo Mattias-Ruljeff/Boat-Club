@@ -35,7 +35,7 @@ namespace Jolly_Pirate_Yacht_Club.Model
             } else {
                 foreach (var boat in boatList)
                 {
-                    returnString += $"Boat ID: {boat.ID} Boat type: {boat.Type} Boat Length: {boat.Length}\n";
+                    returnString += $"Boat ID: {boat.ID} Boat type: {boat.Type} Boat Length: {boat.Length}\n ==================================\n";
                 }
             }
             
