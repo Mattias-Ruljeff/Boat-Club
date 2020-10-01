@@ -58,20 +58,16 @@ namespace Jolly_Pirate_Yacht_Club.View
 
 
             } while (name == "");
+            string enteredSSN;
+            Console.WriteLine("===================");
+            Console.WriteLine("Enter social security number, 10 numbers");
 
-            string socialSecurityNumber;
-            do
-            {
-                Console.WriteLine("===================");
-                Console.WriteLine("Enter social security number, 10 numbers");
-
-                socialSecurityNumber = Console.ReadLine();
+            enteredSSN = Console.ReadLine();
 
 
-            } while (socialSecurityNumber.Length != 10);
             try
             {
-                database.createMember(name, socialSecurityNumber);
+                database.createMember(name, enteredSSN);
                 
             } 
             catch (Exception e) 
@@ -134,7 +130,7 @@ namespace Jolly_Pirate_Yacht_Club.View
             switch (Console.ReadLine())
             {
                 case "1":
-                    database.removeMember(id);
+                    // database.removeMember(id);
                     break;
 
                 case "2":

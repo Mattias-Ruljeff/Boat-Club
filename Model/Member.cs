@@ -34,11 +34,6 @@ namespace Jolly_Pirate_Yacht_Club.Model
                 _id = value;
             }
         }
-
-        public dynamic getName()
-        {
-            return _name;
-        }
     }
 
 }
