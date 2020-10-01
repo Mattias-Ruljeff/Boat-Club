@@ -77,22 +77,27 @@ namespace Jolly_Pirate_Yacht_Club.Model
 //--------------------------Member-----------------------------------
         public void createMember(string name, string ssn)
         {
-            try
-            {
-                if(!searchUniqueMember(ssn))
-                {
-                   
+            string enteredSSN = ssn;
+            bool memberExist = true;
+            var test = false;
 
-                    Console.WriteLine("Member created, press any button to close");
-                    return true;
-                }
-                else
-                {
-                    Console.WriteLine("Member already exist");
-                    Console.WriteLine("Enter a valid SSN");
+                while (memberExist) {
+                    test = searchUniqueMember(enteredSSN);
+                    if(test)
+                    {
+                        Console.WriteLine("Member already exist");
+                        Console.WriteLine("Enter a valid SSN");
+                        enteredSSN = Console.ReadLine();
+                    } 
+                    else
+                    {
+                        memberExist = false;
+                    }
 
-                    return false;
-                }
+                };
+                
+                Console.WriteLine("Member created, press any button to close");
+
                 Member newMember = new Member {
                                         ID = 1,
                                         Name = name,
@@ -101,13 +106,8 @@ namespace Jolly_Pirate_Yacht_Club.Model
 
                 Console.WriteLine("===================");
                 Console.ReadKey(true);
-                
-            }
-            catch (System.Exception)
-            {
-                
-                throw;
-            }
+
+   
         }
         public bool searchUniqueMember(string ssn)
         {
