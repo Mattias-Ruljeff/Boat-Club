@@ -84,7 +84,7 @@ namespace Jolly_Pirate_Yacht_Club.View
             }
 
             Console.WriteLine("Enter length");
-            length = Int32.Parse(Console.ReadLine());
+            length = Convert.ToInt32(Console.ReadLine());
 
             try
             {
@@ -102,6 +102,8 @@ namespace Jolly_Pirate_Yacht_Club.View
         {
             int memberID;
             int boatID;
+            string boatType;
+            int boatLength;
 
             Console.WriteLine("=========================");
             Console.WriteLine("Enter your member ID.");
@@ -112,9 +114,42 @@ namespace Jolly_Pirate_Yacht_Club.View
             Console.WriteLine("Enter your boat ID.");
             boatID = Int32.Parse(Console.ReadLine());
 
+            Console.WriteLine("===================");
+            Console.WriteLine("Select your boat type.");
+            Console.WriteLine("1. Sailboat");
+            Console.WriteLine("2. Motorsailer");
+            Console.WriteLine("3. Kayak/Canoe");
+            Console.WriteLine("4. Other");
+
+            boatType = Console.ReadLine();
+
+            if (boatType == "1")
+            {
+                boatType = "Sailboat";
+            }
+            else if (boatType == "2")
+            {
+                boatType = "Motorsailer";
+            }
+            else if (boatType == "3")
+            {
+                boatType = "Kayak/Canoe";
+            }
+            else if (boatType == "4")
+            {
+                boatType = "Other";
+            }
+            else
+            {
+                Console.WriteLine("Not a valid type");
+            }
+
+            Console.WriteLine("Enter new boat-length");
+            boatLength = Convert.ToInt32(Console.ReadLine());
+            
             try
             {
-                // database.changeBoatInformation(memberID, boatID);        
+                database.changeBoatInformation(memberID, boatID, boatType, boatLength);        
             }
             catch (Exception e)
             {
@@ -157,7 +192,7 @@ namespace Jolly_Pirate_Yacht_Club.View
                 case "1":
                     try
                     {
-                        // database.removeBoat(memberID, boatID);        
+                        database.removeBoat(memberID, boatID);
                     }
                     catch (Exception e)
                     {

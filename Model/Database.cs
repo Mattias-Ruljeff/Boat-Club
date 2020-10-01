@@ -161,22 +161,21 @@ namespace Jolly_Pirate_Yacht_Club.Model
         public void removeMember(int id)
         {
             var db = getDatabaseDocument();
-            Member temp = new Member();
+            Member memberToBeRemoved = new Member();
 
             foreach (var member in db)
             {
                 if (member.ID == id)
                 {
-                    temp = member;
+                    memberToBeRemoved = member;
                 }
             }
-            db.Remove(temp);
+            db.Remove(memberToBeRemoved);
             writeToDatabase(db);
   
         }
 
 //--------------------------Boat-----------------------------------
-
 
         public int checkBoatHighestIDNumber(dynamic db) 
         {
@@ -218,14 +217,56 @@ namespace Jolly_Pirate_Yacht_Club.Model
 
         }
 
-        public void changeBoatInformation(int memberID, int boatID)
+        public void changeBoatInformation(int memberID, int boatID, string boatType, int boatLength)
         {
+            var db = getDatabaseDocument();
+
+            foreach (var member in db)
+            {
+                if (member.ID == memberID)
+                {
+                    foreach (var boat in member.boatList)
+                    {
+                        if(boat.ID == boatID)
+                        {
+                            boat.Type = boatType;
+                            boat.Length = boatLength; 
+                        }
+                    }
+
+                    // member.Name = newName;
+                    // Console.WriteLine("Enter new SSN: ");
+                    // string newSSN = checkSSNLength(Console.ReadLine());
+                    // member.SSN = newSSN;
+                }
+            }
+            writeToDatabase(db);
 
         }
 
         public void removeBoat(int memberID, int boatID)
         {
+            var db = getDatabaseDocument();
+            Member memberFromDb = new Member();
+            Boat boatToRemove = new Boat();
 
+            foreach (var member in db)
+            {
+                if (member.ID == memberID)
+                {
+                    memberFromDb = member;
+                    foreach (var boat in member.boatList)
+                    {
+                        if(boat.ID == boatID)
+                        {
+                            boatToRemove = boat;
+                        }
+                    }
+
+                member.boatList.Remove(boatToRemove);
+                }
+            }
+            writeToDatabase(db);
         }
     }
 
