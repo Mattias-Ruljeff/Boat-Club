@@ -67,6 +67,20 @@ namespace Jolly_Pirate_Yacht_Club.Model
             return enteredSSN;
         }
 
+        public int checkMemberHighestIDNumber(dynamic db) 
+        {
+            int highestNumber = 0;
+            foreach (var member in db)
+            {
+                if (highestNumber < member.ID)
+                {
+                    highestNumber = member.ID;
+                } 
+            }
+            return highestNumber + 1;
+
+        }
+
         public void createMember(string name, string ssn)
         {
             // string test = ssn;
@@ -89,7 +103,7 @@ namespace Jolly_Pirate_Yacht_Club.Model
 
             };
             var newMember = new Member {
-                ID = 1,
+                ID = checkMemberHighestIDNumber(db),
                 Name = name,
                 SSN = ssn
 
@@ -121,29 +135,94 @@ namespace Jolly_Pirate_Yacht_Club.Model
             return memberFound;    
         }
 
-        public void changeMemberInformation()
+        public void changeMemberInformation(int id)
         {   
+            var db = getDatabaseDocument();
+
+            foreach (var member in db)
+            {
+                if (member.ID == id)
+                {
+                    string newName = "";
+                    while(newName.Length <= 0) {
+                        Console.WriteLine("Enter new name: ");
+                        newName = Console.ReadLine(); 
+                    }
+
+                    member.Name = newName;
+                    Console.WriteLine("Enter new SSN: ");
+                    string newSSN = checkSSNLength(Console.ReadLine());
+                    member.SSN = newSSN;
+                }
+            }
+            writeToDatabase(db);
 
         }
-        public void removeMember(int memberID)
+        public void removeMember(int id)
         {
+            var db = getDatabaseDocument();
+            Member temp = new Member();
+
+            foreach (var member in db)
+            {
+                if (member.ID == id)
+                {
+                    temp = member;
+                }
+            }
+            db.Remove(temp);
+            writeToDatabase(db);
   
         }
 
 //--------------------------Boat-----------------------------------
 
-        public void addBoat(int memberId, string type, int length)
+
+        public int checkBoatHighestIDNumber(dynamic db) 
         {
+            int highestNumber = 0;
+            foreach (var member in db)
+            {
+                foreach (var boat in member.boatList)
+                {
+                    if (highestNumber < boat.ID)
+                    {
+                        highestNumber = boat.ID;
+                    } 
+                }
+            }
+            return highestNumber + 1;
 
         }
+        public void addBoat(int memberId, string type, int length)
+        {
+            // string test = ssn;
+            var db = getDatabaseDocument();
+            // System.Console.WriteLine("-----");
+            // System.Console.WriteLine(db["ID:1"]);
+            // System.Console.WriteLine("-----");
+            
+            foreach (var member in db)
+            {
+                if (member.ID == memberId) 
+                {
+                    member.boatList.Add(new Boat { ID = checkBoatHighestIDNumber(db), Type = type, Length = length });
+                }
+            }
+            writeToDatabase(db);
+
+        }
+
         public void searchUniqueBoat(int memberID, int boatID)
         {
 
         }
+
         public void changeBoatInformation(int memberID, int boatID)
         {
 
         }
+
         public void removeBoat(int memberID, int boatID)
         {
 

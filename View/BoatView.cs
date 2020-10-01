@@ -7,7 +7,7 @@ namespace Jolly_Pirate_Yacht_Club.View
     public class BoatView
     {
         Boat boat = new Boat();
-        // Database database = new Database();
+        Database database = new Database();
 
         public void boatMenu()
         {
@@ -88,7 +88,7 @@ namespace Jolly_Pirate_Yacht_Club.View
 
             try
             {
-                // database.addBoat(memberID, type, length);
+                database.addBoat(memberID, type, length);
             }
             catch (Exception e)
             {

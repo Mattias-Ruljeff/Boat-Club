@@ -92,9 +92,7 @@ namespace Jolly_Pirate_Yacht_Club.View
 
             try
             {
-                // var member = database.searchUniqueMember(id);
-
-                // database.changeMemberInformation(member, id);
+                database.changeMemberInformation(id);
             }
             catch
             {
@@ -113,24 +111,24 @@ namespace Jolly_Pirate_Yacht_Club.View
 
 
             } while (id.ToString().Length < 0);
-            try
-            {
+            // try
+            // {
             //    uniqueMember = database.searchUniqueMember(id);
-            }
-            catch
-            {
-                throw new Exception("Error while deleting member");
-            }
+            // }
+            // catch
+            // {
+            //     throw new Exception("Error while deleting member");
+            // }
             
             // Console.WriteLine("=========================");
             // Console.WriteLine($"Do you want to delete {uniqueMember.Value}?");
-            // Console.WriteLine("1. Yes");
-            // Console.WriteLine("2. No");
+            Console.WriteLine("1. Yes");
+            Console.WriteLine("2. No");
 
             switch (Console.ReadLine())
             {
                 case "1":
-                    // database.removeMember(id);
+                    database.removeMember(id);
                     break;
 
                 case "2":

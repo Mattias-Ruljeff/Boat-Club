@@ -4,40 +4,49 @@ namespace Jolly_Pirate_Yacht_Club.Model
 {
     class Boat
     {
-        public string type
-        {
-            get => default;
-            set
-            {
-                if (value == "")
-                {
-                    throw new Exception("Name cannot be empty");
-                }
-            }
-        }
-
-        public int length
-        {
-            get => default;
-            set
-            {
-                if (value <= 0)
-                {
-                    throw new Exception("Length cannot be less than zero");
-                }
-            }
-        }
+        private int _id;
+        private string _type;
+        private int _length;
 
         public int ID
         {
-            get => default;
+            get { return _id; }
             set
             {
                 if (value <= 0)
                 {
                     throw new Exception("Length cannot be less than zero");
                 }
+                _id = value;
             }
         }
+
+        public string Type
+        {
+            get { return _type; }
+            set
+            {
+                // if (value == "")
+                // {
+                //     throw new Exception("Name cannot be empty");
+                // }
+                _type = value;
+            }
+        }
+
+        public int Length
+        {
+            get { return _length; }
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new Exception("Length cannot be less than zero");
+                }
+                _length = value;
+            }
+        }
+    
     }
+
 }

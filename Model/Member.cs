@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Jolly_Pirate_Yacht_Club.Model
 {
@@ -7,33 +8,25 @@ namespace Jolly_Pirate_Yacht_Club.Model
         private int _id;
         private string _name;
         private string _ssn;
-
-        public string SSN
+        public List<Boat> boatList = new List<Boat>();
+        public int ID
         {
-            get { return _ssn;}
-            set
-            {
-               _ssn = value;
-            }
+            get { return _id; }
+            set { _id = value; }
         }
 
         public string Name
         {
-            get { return _name;}
-            set
-            {
-                _name = value;
-            }
+            get { return _name; }
+            set { _name = value; }
+        }
+        
+        public string SSN
+        {
+            get { return _ssn; }
+            set { _ssn = value; }
         }
 
-        public int ID
-        {
-            get { return _id;}
-            set
-            {
-                _id = value;
-            }
-        }
     }
 
 }

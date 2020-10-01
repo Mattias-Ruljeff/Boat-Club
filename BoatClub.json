@@ -1,1 +1,1 @@
-[{"SSN":"1234567812","Name":"adasdasd","ID":1},{"SSN":"1234567892","Name":"Iron Maiden","ID":1},{"SSN":"1234567894","Name":"Black Dick","ID":1},{"SSN":"1234567896","Name":"Rune","ID":1}]
+[{"boatList":[{"ID":3,"Type":"Sailboat","Length":1337}],"ID":2,"Name":"Hitler","SSN":"1234567898"},{"boatList":[],"ID":3,"Name":"Stalin","SSN":"1234567896"}]
