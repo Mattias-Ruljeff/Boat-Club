@@ -95,8 +95,8 @@ namespace Jolly_Pirate_Yacht_Club.Model
 
 
             writeToDatabase(database);
-            Console.WriteLine("Member created, press any button to close");
-            Console.WriteLine("===================");
+            System.Console.WriteLine("Member was added");
+            System.Console.WriteLine("Press any button to exit");
             Console.ReadKey(true);
         }
 
@@ -142,6 +142,9 @@ namespace Jolly_Pirate_Yacht_Club.Model
                 }
             }
             writeToDatabase(database);
+            System.Console.WriteLine("Member information was changed");
+            System.Console.WriteLine("Press any button to exit");
+            Console.ReadKey(true);
 
         }
         public void removeMember(int id)
@@ -157,6 +160,9 @@ namespace Jolly_Pirate_Yacht_Club.Model
             }
             database.Remove(memberToBeRemoved);
             writeToDatabase(database);
+            System.Console.WriteLine("Member was removed");
+            System.Console.WriteLine("Press any button to exit");
+            Console.ReadKey(true);
   
         }
 
@@ -166,6 +172,8 @@ namespace Jolly_Pirate_Yacht_Club.Model
             {
                 member.ToString(displayChoice);
             }
+            System.Console.WriteLine("Press any button to exit");
+            Console.ReadKey(true);
         }
 
 //--------------------------Boat-----------------------------------
@@ -197,6 +205,9 @@ namespace Jolly_Pirate_Yacht_Club.Model
                 }
             }
             writeToDatabase(database);
+            System.Console.WriteLine("Boat was added");
+            System.Console.WriteLine("Press any button to exit");
+            Console.ReadKey(true);
 
         }
 
@@ -223,6 +234,9 @@ namespace Jolly_Pirate_Yacht_Club.Model
                 }
             }
             writeToDatabase(database);
+            System.Console.WriteLine("Boat information was changed");
+            System.Console.WriteLine("Press any button to exit");
+            Console.ReadKey(true);
 
         }
 
@@ -248,6 +262,9 @@ namespace Jolly_Pirate_Yacht_Club.Model
                 }
             }
             writeToDatabase(database);
+            System.Console.WriteLine("Boat was removed");
+            System.Console.WriteLine("Press any button to exit");
+            Console.ReadKey(true);
         }
     }
 

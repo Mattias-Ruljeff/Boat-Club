@@ -31,7 +31,7 @@ namespace Jolly_Pirate_Yacht_Club.Model
             returnString += $"ID: {ID}\nName: {Name}\n";
 
             if (listType == "compact") {
-                returnString += $"Number of boats {boatList.Count}\n";
+                returnString += $"Number of boats: {boatList.Count}\n";
             } else {
                 returnString += "---------------------Boats----------------------\n";
                 foreach (var boat in boatList)

@@ -57,11 +57,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\oscar\\Desktop\\TEST 2\\jolly-pirate-yacht-club\\Jolly pirate Yacht Club.csproj",
+      "projectUniqueName": "c:\\Users\\oscar\\Desktop\\TEST 2\\jolly-pirate-yacht-club\\Jolly pirate Yacht Club.csproj",
       "projectName": "Jolly pirate Yacht Club",
-      "projectPath": "C:\\Users\\oscar\\Desktop\\TEST 2\\jolly-pirate-yacht-club\\Jolly pirate Yacht Club.csproj",
+      "projectPath": "c:\\Users\\oscar\\Desktop\\TEST 2\\jolly-pirate-yacht-club\\Jolly pirate Yacht Club.csproj",
       "packagesPath": "C:\\Users\\oscar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\oscar\\Desktop\\TEST 2\\jolly-pirate-yacht-club\\obj\\",
+      "outputPath": "c:\\Users\\oscar\\Desktop\\TEST 2\\jolly-pirate-yacht-club\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\oscar\\AppData\\Roaming\\NuGet\\NuGet.Config",
