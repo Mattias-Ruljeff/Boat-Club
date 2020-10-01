@@ -21,7 +21,7 @@ namespace Jolly_Pirate_Yacht_Club.View
             switch (menuChoice)
             {
                 case 1:
-                    registerMember();
+                    createMember();
                     break;
                 case 2:
                     editMember();
@@ -40,53 +40,50 @@ namespace Jolly_Pirate_Yacht_Club.View
             Console.WriteLine("Show list of all members");
             Console.WriteLine("=========================");
             Console.WriteLine("Choose a number!");
-            Console.WriteLine("1. Compact list");
-            Console.WriteLine("2. Verbose list");
+            Console.WriteLine($"1. {ListType.Compact} list");
+            Console.WriteLine($"2. {ListType.Verbose} list");
             int menuChoice = Convert.ToInt32(Console.ReadLine());
 
             switch (menuChoice)
             {
                 case 1:
-                    database.displayAllMembers("compact");
+                    database.displayAllMembers(ListType.Compact);
                     break;
                 case 2:
-                    database.displayAllMembers("");
+                    database.displayAllMembers(ListType.Verbose);
                     break;
                 default:
                     break;
             }
-
         }
 
-        public void registerMember()
+        public void createMember()
         {
             string name;
             do
             {
                 Console.WriteLine("=========================");
                 Console.WriteLine("Enter new name.");
-
                 name = Console.ReadLine();
-
-
             } while (name == "");
+
             string enteredSSN;
             Console.WriteLine("===================");
             Console.WriteLine("Enter social security number, 10 numbers");
-
             enteredSSN = Console.ReadLine();
-
 
             try
             {
-                database.createMember(name, enteredSSN);   
+                database.createMember(name, enteredSSN);
+                System.Console.WriteLine("Member was added");
+                System.Console.WriteLine("Press any button to exit");
+                Console.ReadKey(true);
             } 
             catch (Exception e) 
             {
                 Console.WriteLine(e);
                 throw new Exception("Error while creating new member");
             }
-
         }
 
         public void editMember()
@@ -97,13 +94,14 @@ namespace Jolly_Pirate_Yacht_Club.View
                 Console.WriteLine("=========================");
                 Console.WriteLine("Enter member ID.");
                 id = Convert.ToInt32(Console.ReadLine());
-
-
             } while (id.ToString().Length < 0);
 
             try
             {
-                database.changeMemberInformation(id);
+                database.editMember(id);
+                System.Console.WriteLine("Member information was changed");
+                System.Console.WriteLine("Press any button to exit");
+                Console.ReadKey(true);
             }
             catch
             {
@@ -122,6 +120,7 @@ namespace Jolly_Pirate_Yacht_Club.View
                 id = Convert.ToInt32(Console.ReadLine());
 
             } while (id.ToString().Length < 0);
+
             try
             {
                uniqueMember = database.findMemberInDb(id);
@@ -140,6 +139,9 @@ namespace Jolly_Pirate_Yacht_Club.View
             {
                 case "1":
                     database.removeMember(id);
+                    System.Console.WriteLine("Member was removed");
+                    System.Console.WriteLine("Press any button to exit");
+                    Console.ReadKey(true);
                     break;
 
                 case "2":
@@ -148,7 +150,6 @@ namespace Jolly_Pirate_Yacht_Club.View
                 
                 default:
                     break;
-
             }
         }
     }

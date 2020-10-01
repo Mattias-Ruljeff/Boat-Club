@@ -21,7 +21,6 @@ namespace Jolly_Pirate_Yacht_Club.View
 
             switch (menuChoice)
             {
-
                 case 1:
                     memberView.memberMenu();
                     break;
@@ -39,6 +38,5 @@ namespace Jolly_Pirate_Yacht_Club.View
                     throw new ArgumentException("Must select an option by entering a number 1 - 3.");
             }
         } 
-
     }
 }

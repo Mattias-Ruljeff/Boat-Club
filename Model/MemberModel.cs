@@ -26,24 +26,23 @@ namespace Jolly_Pirate_Yacht_Club.Model
             set { _ssn = value; }
         }
         
-        public void ToString(string listType) {
+        public void ToString(ListType listType) {
             string returnString = "===================-Member-======================\n";
             returnString += $"ID: {ID}\nName: {Name}\n";
 
-            if (listType == "compact") {
+            if (listType == ListType.Compact) {
                 returnString += $"Number of boats: {boatList.Count}\n";
-            } else {
+            } 
+            else if (listType == ListType.Verbose)
+            {
                 returnString += "---------------------Boats----------------------\n";
                 foreach (var boat in boatList)
                 {
-                    returnString += $"Boat ID: {boat.ID} Boat type: {boat.Type} Boat Length: {boat.Length}\n";
+                    returnString += $"Boat ID: {boat.ID}, Boat type: {boat.Type}, Boat length: {boat.Length}\n";
                 }
                 returnString += "------------------------------------------------\n";
             }
-            
             System.Console.WriteLine(returnString);
         }
-        
     }
-
 }

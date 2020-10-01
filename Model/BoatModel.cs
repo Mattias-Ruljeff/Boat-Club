@@ -5,7 +5,7 @@ namespace Jolly_Pirate_Yacht_Club.Model
     class Boat
     {
         private int _id;
-        private string _type;
+        private BoatType _type;
         private int _length;
 
         public int ID
@@ -21,17 +21,10 @@ namespace Jolly_Pirate_Yacht_Club.Model
             }
         }
 
-        public string Type
+        public BoatType Type
         {
             get { return _type; }
-            set
-            {
-                // if (value == "")
-                // {
-                //     throw new Exception("Name cannot be empty");
-                // }
-                _type = value;
-            }
+            set { _type = value; }
         }
 
         public int Length
@@ -46,7 +39,5 @@ namespace Jolly_Pirate_Yacht_Club.Model
                 _length = value;
             }
         }
-    
     }
-
 }
