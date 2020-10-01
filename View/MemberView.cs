@@ -20,8 +20,6 @@ namespace Jolly_Pirate_Yacht_Club.View
             Console.WriteLine("1. Register new member");
             Console.WriteLine("2. Edit member");
             Console.WriteLine("3. Delete member");
-            Console.WriteLine("4. List compact Information");
-            Console.WriteLine("5. List verbose Information");
             int menuChoice = Convert.ToInt32(Console.ReadLine());
 
             switch (menuChoice)
@@ -35,15 +33,33 @@ namespace Jolly_Pirate_Yacht_Club.View
                 case 3:
                     removeMember();
                     break;
-                case 4:
-                    Console.WriteLine("4 valt");
+                default:
                     break;
-                case 5:
-                    displayOneMember();
+            }
+        }
+
+        public void displayMembers() 
+        {
+            Console.WriteLine("=========================");
+            Console.WriteLine("Show list of all members");
+            Console.WriteLine("=========================");
+            Console.WriteLine("Choose a number!");
+            Console.WriteLine("1. Compact list");
+            Console.WriteLine("2. Verbose list");
+            int menuChoice = Convert.ToInt32(Console.ReadLine());
+
+            switch (menuChoice)
+            {
+                case 1:
+                    database.displayAllMembers("compact");
+                    break;
+                case 2:
+                    database.displayAllMembers("");
                     break;
                 default:
                     break;
             }
+
         }
 
         public void registerMember()
@@ -67,8 +83,7 @@ namespace Jolly_Pirate_Yacht_Club.View
 
             try
             {
-                database.createMember(name, enteredSSN);
-                
+                database.createMember(name, enteredSSN);   
             } 
             catch (Exception e) 
             {
@@ -138,48 +153,6 @@ namespace Jolly_Pirate_Yacht_Club.View
                 default:
                     break;
 
-            }
-        }
-
-        public void displayOneMember () 
-        {
-            int memberId;
-            do
-            {
-                Console.WriteLine("=========================");
-                Console.WriteLine("Enter member ID.");
-                memberId = Convert.ToInt32(Console.ReadLine());
-
-
-            } while (memberId.ToString().Length < 0);
-
-            try
-            {
-                // var member = database.searchUniqueMember(memberId);
-
-                // Console.WriteLine("Member ID " + member.ID);
-
-                // Console.WriteLine("=========================");
-                // Console.WriteLine("Member information");
-                // Console.WriteLine("Member ID: " + member.Attribute("memberId").Value);
-                // Console.WriteLine("Name: " + member.Attribute("name").Value);
-                // Console.WriteLine("SSN: " + member.Attribute("SSN").Value);
-
-                // var childElements = from el in member.Descendants("Boats").Elements() select el;
-                // foreach (XElement el in childElements)
-                // {
-                //     Console.WriteLine("=========================");
-                //     Console.WriteLine("Boat information");
-                //     Console.WriteLine("Boat ID: " + el.Attribute("boatId").Value);
-                //     Console.WriteLine("Type: " + el.Attribute("type").Value);
-                //     Console.WriteLine("Length: " + el.Attribute("length").Value);
-                // }
-                // Console.WriteLine("=========================");
-
-            }
-            catch
-            {
-                throw new Exception("Error while displaying member");
             }
         }
     }

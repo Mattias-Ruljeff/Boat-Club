@@ -29,6 +29,7 @@ namespace Jolly_Pirate_Yacht_Club.View
                     boatView.boatMenu();
                     break;
                 case 3:
+                    memberView.displayMembers();
                     break;
                 case 4:
                     Console.WriteLine("Thank you for choosing \"The Jolly Pirate Boat Club\".");

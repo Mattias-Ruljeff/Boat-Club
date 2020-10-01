@@ -14,18 +14,8 @@ namespace Jolly_Pirate_Yacht_Club.Model
 {
     public class Database
     {
-        //open file stream
         public Database ()
         {
-            // database.Add(getDatabaseDocument());
-            // foreach (var item in database)
-            // {  
-            //     foreach (var hej in item)
-            //     {
-            //         System.Console.WriteLine(hej.SSN);
-            //     }                
-            // }
-
         }
 //--------------------------Read database-----------------------------------
 
@@ -175,6 +165,15 @@ namespace Jolly_Pirate_Yacht_Club.Model
   
         }
 
+        public void displayAllMembers(string displayChoice)
+        {
+            var db = getDatabaseDocument();
+            foreach (var member in db)
+            {
+                member.ToString(displayChoice);
+            }
+        }
+
 //--------------------------Boat-----------------------------------
 
         public int checkBoatHighestIDNumber(dynamic db) 
@@ -195,11 +194,7 @@ namespace Jolly_Pirate_Yacht_Club.Model
         }
         public void addBoat(int memberId, string type, int length)
         {
-            // string test = ssn;
             var db = getDatabaseDocument();
-            // System.Console.WriteLine("-----");
-            // System.Console.WriteLine(db["ID:1"]);
-            // System.Console.WriteLine("-----");
             
             foreach (var member in db)
             {

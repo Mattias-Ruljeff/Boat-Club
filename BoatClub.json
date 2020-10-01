@@ -1,1 +1,1 @@
-[{"boatList":[],"ID":2,"Name":"Hitler","SSN":"1234567898"},{"boatList":[],"ID":3,"Name":"Stalin","SSN":"1234567896"}]
+[{"boatList":[{"ID":1,"Type":"Sailboat","Length":432},{"ID":3,"Type":"Kayak/Canoe","Length":43}],"ID":2,"Name":"Hitler","SSN":"1234567898"},{"boatList":[{"ID":2,"Type":"Motorsailer","Length":314}],"ID":3,"Name":"Stalin","SSN":"1234567896"}]
