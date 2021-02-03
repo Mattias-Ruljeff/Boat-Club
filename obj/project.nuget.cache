@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7x0FhM4ZD7dVEOf0Z1+8upV8ST2dI0VOc00S8iuNVxJ+VoQNQwxGSH/Yu6HR5cVHJ1m0ADrfvBk17dFT30PAsA==",
+  "dgSpecHash": "5jNfSpX41Ca7boNK9JiBRLBh31yH9obQUKdWPPrmCvpHjlvTtAmSrXn8ZYMhOtlxPw2FBsHS53eTd8/5VKOUOQ==",
   "success": true,
-  "projectFilePath": "H:\\Skolan\\1DV607 UML\\jolly-pirate-yacht-club\\Jolly pirate Yacht Club.csproj",
+  "projectFilePath": "H:\\Skolan\\1DV607 UML\\WS2\\jolly-pirate-yacht-club rev 2\\Jolly pirate Yacht Club.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mattias\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
   ],

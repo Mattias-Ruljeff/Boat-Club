@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "H:\\Skolan\\1DV607 UML\\jolly-pirate-yacht-club\\Jolly pirate Yacht Club.csproj": {}
+    "H:\\Skolan\\1DV607 UML\\WS2\\jolly-pirate-yacht-club rev 2\\Jolly pirate Yacht Club.csproj": {}
   },
   "projects": {
-    "H:\\Skolan\\1DV607 UML\\jolly-pirate-yacht-club\\Jolly pirate Yacht Club.csproj": {
+    "H:\\Skolan\\1DV607 UML\\WS2\\jolly-pirate-yacht-club rev 2\\Jolly pirate Yacht Club.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\Skolan\\1DV607 UML\\jolly-pirate-yacht-club\\Jolly pirate Yacht Club.csproj",
+        "projectUniqueName": "H:\\Skolan\\1DV607 UML\\WS2\\jolly-pirate-yacht-club rev 2\\Jolly pirate Yacht Club.csproj",
         "projectName": "Jolly pirate Yacht Club",
-        "projectPath": "H:\\Skolan\\1DV607 UML\\jolly-pirate-yacht-club\\Jolly pirate Yacht Club.csproj",
+        "projectPath": "H:\\Skolan\\1DV607 UML\\WS2\\jolly-pirate-yacht-club rev 2\\Jolly pirate Yacht Club.csproj",
         "packagesPath": "C:\\Users\\Mattias\\.nuget\\packages\\",
-        "outputPath": "H:\\Skolan\\1DV607 UML\\jolly-pirate-yacht-club\\obj\\",
+        "outputPath": "H:\\Skolan\\1DV607 UML\\WS2\\jolly-pirate-yacht-club rev 2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
